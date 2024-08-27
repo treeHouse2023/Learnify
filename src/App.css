@@ -36,3 +36,46 @@
     transform: rotate(360deg);
   }
 }
+
+/* New styles for Guidelines and AboutCreator pages */
+.hero {
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  min-height: 100vh;
+  animation: gradientBackground 10s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@keyframes gradientBackground {
+  0% {
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+  }
+  50% {
+    background: linear-gradient(135deg, #185a9d, #43cea2);
+  }
+  100% {
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+  }
+}
+
+.text-section h1,
+.text-section p {
+  animation: fadeIn 2s ease forwards;
+}
+
+.text-section p {
+  animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

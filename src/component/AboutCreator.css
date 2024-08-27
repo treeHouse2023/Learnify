@@ -1,0 +1,33 @@
+.about-creator-section {
+  background: linear-gradient(to right, #43cea2, #185a9d);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.creator-image {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+h1,
+h3 {
+  font-weight: bold;
+}
+
+.lead {
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+ul {
+  text-align: left;
+  margin-top: 20px;
+}

@@ -1,0 +1,73 @@
+.about-section {
+  background: linear-gradient(to right, #43cea2, #185a9d);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff; /* Ensure text is white */
+  padding: 20px; /* Add padding to ensure content doesn't touch the screen edges */
+}
+
+.about-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 900px; /* Maximum width of the card */
+  margin: 0 auto; /* Center the card */
+  height: auto; /* Adjust height based on content */
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.about-card p,
+.about-card ul {
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-align: left; /* Align text to the left */
+  line-height: 1.6;
+}
+
+.about-card ul {
+  padding-left: 20px;
+}
+
+.btn-custom {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.btn-custom:hover {
+  background-color: #ffffff;
+  color: #43cea2;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .about-card {
+    padding: 30px;
+    max-width: 100%; /* Allow the card to take full width on smaller screens */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-card p,
+  .about-card ul {
+    font-size: 1rem; /* Slightly smaller font for better readability on small screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .about-card {
+    padding: 20px;
+    max-width: 100%; /* Full width on very small screens */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,107 @@
+/* Sharing Page Hero Section */
+.sharing-hero {
+  background: linear-gradient(
+    to right,
+    #43cea2,
+    #185a9d
+  ); /* Unified Gradient */
+  background-size: cover;
+  background-position: center; /* Ensures the background is centered */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Ensure the hero section takes full width */
+  overflow: hidden; /* Prevent any content overflow */
+}
+
+/* Shared Styling for Sharing Page */
+input.form-control-lg,
+select.form-control-lg {
+  border-radius: 0;
+  border: 2px solid #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+input.form-control-lg::placeholder {
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #43cea2;
+  border-color: #43cea2;
+}
+
+.btn-primary:hover {
+  background-color: #185a9d;
+  border-color: #185a9d;
+}
+
+.text-section h1,
+.text-section p {
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Drag-and-Drop Zone */
+.drop-zone {
+  border: 2px dashed #ffffff; /* Dotted border */
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  color: #fff;
+  border-radius: 15px; /* Rounded corners */
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  max-width: 100%; /* Ensures responsiveness */
+  width: 750px; /* Fixed width for larger screens */
+  margin: 0 auto; /* Center the drop zone */
+}
+
+.drop-zone.drag-active {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.3
+  ); /* Slightly brighter when active */
+}
+
+.drop-zone p {
+  margin: 0;
+  font-size: 1.2rem;
+  animation: fadeIn 2s ease forwards;
+}
+
+.drop-zone input[type="file"] {
+  display: none; /* Hide the default file input */
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 768px) {
+  .sharing-hero {
+    padding: 20px; /* Add padding for smaller screens */
+  }
+
+  .drop-zone {
+    width: 100%; /* Take full width on smaller screens */
+    margin-left: 0; /* Reset margin */
+  }
+}
