@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# Learnify
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Learnify** is an innovative, student-driven platform designed to streamline access to academic resources. Built using **HTML**, **CSS**, **JavaScript**, **React JS**, **Tailwind CSS**, and **Bootstrap**, this responsive and mobile-friendly platform allows students to **upload**, **search**, and **share** previous years' question papers effortlessly. 
 
-## Available Scripts
+## Table of Contents
+- [About the Project](#about-the-project)
+- [Key Features](#key-features)
+- [Technologies Used](#technologies-used)
+- [How It Works](#how-it-works)
+- [Manually Inserted Data](#manually-inserted-data)
+- [Version Control](#version-control)
+- [Setup and Installation](#setup-and-installation)
+- [Guidelines for Contributors](#guidelines-for-contributors)
+- [Future Enhancements](#future-enhancements)
+- [Deployed Link](#deployed-link)
+- [About the Creator](#about-the-creator)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## About the Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Learnify empowers students by providing a comprehensive platform where they can upload and access previous year question papers based on their **program**, **semester**, and **subject**. This platform promotes collaborative learning, saving students valuable time and helping them prepare for exams more effectively. By centralizing these resources, Learnify simplifies the academic experience, providing quick and easy access to essential materials.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Key Features
+- **Upload Question Papers**: Drag & drop functionality to upload papers categorized by program, semester, and subject.
+- **Search Question Papers**: Efficient search feature to find relevant question papers.
+- **Previous Question Papers Repository**: Students can browse and download uploaded question papers.
+- **Responsive Design**: Optimized for both desktop and mobile devices.
+- **Secure Authentication**: User authentication ensures that only authorized students upload and access resources.
 
-### `npm test`
+## Technologies Used
+- **Frontend**: HTML, CSS, JavaScript, React JS, Tailwind CSS, Bootstrap
+- **Data Handling**: Manually inserted JSON data
+- **Version Control**: Git and GitHub for code management
+- **Deployment**: (Deployed Link) - [Add Deployed Link Here]
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How It Works
+Learnify allows students to interact with the platform via two main actions:  
+1. **Upload**: Students select their program, semester, and subject, and can then drag and drop or click to upload the relevant question papers in PDF format.  
+2. **Search**: Students can search the repository by selecting their program, semester, and subject to find previous year question papers.
 
-### `npm run build`
+The uploaded files are stored according to the selected semester and subject, making it easy to navigate and retrieve the desired papers.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Manually Inserted Data
+To keep the platform structured and maintain records for all **programs**, **semesters**, and **subjects**, JSON data has been manually inserted. This ensures a clear and organized hierarchy for all question papers uploaded by the students.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Programs**: Includes a list of programs such as BCA, B.Tech, etc.
+- **Semesters**: Data for each academic semester, ensuring question papers are categorized accurately.
+- **Subjects**: Subjects are mapped to the corresponding semester and program, with their respective course codes and session details.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Version Control
+Learnify has been developed using **Git** for version control and **GitHub** for repository management. This allows seamless collaboration and tracking of changes over time.
 
-### `npm run eject`
+## Setup and Installation
+To run this project locally, follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/learnify.git
+   ```
+## Guidelines for Contributors
+To maintain the integrity and functionality of Learnify, please adhere to the following guidelines before uploading question papers:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Ensure all files are in **PDF format**.
+- File size should not exceed **10MB**.
+- Use appropriate naming conventions for uploaded files, e.g., `Year_Subject_Program.pdf`.
+- Follow your university's content-sharing policy to avoid violating copyright laws.
+- Double-check the content of the document before uploading.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Future Enhancements
+Some of the planned features for future updates include:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Notes Repository**: A section for students to share comprehensive study notes.
+- **Interactive Chat**: A chat feature for students to discuss and share study materials in real-time.
+- **Enhanced Search**: Filters and advanced search options to narrow down results by session or year.
 
-## Learn More
+## Deployed Link
+Check out the deployed version of Learnify here:  
+[Deployed Website Link]
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## About the Creator
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Nishant Chauhan**  
+Computer Application Student | Web Developer | Freelance Video Editor | Digital Marketing Enthusiast
 
-### Code Splitting
+As a college student passionate about web development and digital solutions, I created Learnify to help fellow students streamline their academic journey by providing easy access to valuable resources. By integrating my skills in React JS, Tailwind CSS, and project management, Learnify is built to deliver an intuitive and seamless user experience.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
