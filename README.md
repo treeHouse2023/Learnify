@@ -75,8 +75,7 @@ Some of the planned features for future updates include:
 - **Enhanced Search**: Filters and advanced search options to narrow down results by session or year.
 
 ## Deployed Link
-Check out the deployed version of Learnify here:  
-[Deployed Website Link]
+Check out the deployed version of Learnify here:  https://learnify-kohl.vercel.app/
 
 ## About the Creator
 
