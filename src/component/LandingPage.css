@@ -1,0 +1,56 @@
+/* Landing Page Hero Section */
+.hero {
+  background: linear-gradient(
+    to right,
+    #43cea2,
+    #185a9d
+  ); /* Unified Gradient */
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Shared Styling for Landing Page */
+input.form-control-lg,
+select.form-control-lg {
+  border-radius: 0;
+  border: 2px solid #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+input.form-control-lg::placeholder {
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #43cea2;
+  border-color: #43cea2;
+  margin-top: 30px;
+}
+
+.btn-primary:hover {
+  background-color: #185a9d;
+  border-color: #185a9d;
+}
+
+.text-section h1,
+.text-section p {
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

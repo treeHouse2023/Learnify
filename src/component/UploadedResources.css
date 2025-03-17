@@ -1,0 +1,114 @@
+.guidelines-hero {
+  background: linear-gradient(to right, #43cea2, #185a9d);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 15px; /* Adds a 15px gap between the cards */
+}
+
+.display-4 {
+  font-size: 3.6rem;
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white;
+  width: 100%;
+  max-width: 18rem; /* Limit the max width for larger screens */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 10px auto; /* Center the card and add margin */
+}
+
+.card-img-top {
+  height: 200px; /* Fixed height for the image */
+  object-fit: cover; /* Ensures the image covers the entire area */
+  width: 100%; /* Makes sure the image takes full width */
+}
+
+.card-body {
+  flex: 1; /* Takes up remaining space in the card */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1; /* Ensures the list items grow to fill available space */
+  overflow-y: auto; /* Adds vertical scroll if the content overflows */
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.list-group-item {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+.card-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  color: #43cea2;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .display-4 {
+    font-size: 2.4rem; /* Adjust heading size on smaller screens */
+  }
+
+  .card {
+    max-width: 100%; /* Allow cards to take full width on smaller screens */
+  }
+
+  .card-img-top {
+    height: 150px; /* Adjust image height on smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .card {
+    max-width: 100%; /* Full width on very small screens */
+  }
+
+  .card-img-top {
+    height: 120px; /* Further reduce image height on very small screens */
+  }
+
+  .card-body {
+    padding: 8px; /* Adjust padding for smaller screens */
+  }
+
+  .card-footer {
+    padding: 8px; /* Adjust footer padding */
+  }
+}
