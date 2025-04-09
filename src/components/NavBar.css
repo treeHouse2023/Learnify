@@ -1,0 +1,107 @@
+/* Overlay & scroll lock */
+.no-scroll {
+  overflow: hidden;
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+/* Hamburger Button */
+.hamburger-btn {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 101;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 30px;
+}
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+.hamburger.open {
+  transform: rotate(45deg);
+}
+.hamburger.open::before {
+  transform: rotate(90deg);
+  top: 0;
+}
+.hamburger.open::after {
+  opacity: 0;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 280px;
+  height: 100vh;
+  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  color: white;
+  padding: 2rem 1.5rem;
+  z-index: 100;
+  transition: left 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.sidebar.show {
+  left: 0;
+}
+
+/* Close Button */
+.close-btn {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  cursor: pointer;
+}
+
+/* Nav Links (Top Side) */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 3.5rem;
+}
+.nav-links a {
+  color: #ffffffcc;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+/* Learnify Branding (Bottom) */
+.nav-brand-bottom {
+  text-align: center;
+  padding-bottom: 2rem;
+  opacity: 0.8;
+}
+.nav-brand-bottom h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #ffffffcc;
+}

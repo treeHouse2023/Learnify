@@ -1,0 +1,104 @@
+/* Sharing Page Hero Section */
+.sharing-hero {
+  background-color: #000; /* Deep black background */
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Shared Styling for Sharing Page Inputs & Buttons */
+input.form-control-lg,
+select.form-control-lg {
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #111;
+  color: #fff;
+  padding: 12px;
+}
+
+input.form-control-lg::placeholder {
+  color: #aaa;
+}
+
+.btn-primary {
+  background-color: #1f1f1f;
+  color: #fff;
+  border: 1px solid #555;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #333;
+  border-color: #666;
+}
+
+/* Text Animations */
+.text-section h1,
+.text-section p {
+  animation: fadeIn 2s ease forwards;
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Drag-and-Drop Zone */
+.drop-zone {
+  border: 2px dashed #666;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ccc;
+  border-radius: 15px;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  max-width: 100%;
+  width: 750px;
+  margin: 0 auto;
+}
+
+.drop-zone.drag-active {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.drop-zone p {
+  margin: 0;
+  font-size: 1.2rem;
+  animation: fadeIn 2s ease forwards;
+  color: #ccc;
+}
+
+.drop-zone input[type="file"] {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sharing-hero {
+    padding: 20px;
+  }
+
+  .drop-zone {
+    width: 100%;
+    margin-left: 0;
+  }
+}

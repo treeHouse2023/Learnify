@@ -1,0 +1,78 @@
+.guidelines-hero {
+  background: linear-gradient(to right, #000000, #1a1a1a);
+  min-height: 100vh;
+  padding: 80px 20px 40px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guidelines-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.brand-highlight {
+  color: #43cea2;
+}
+
+.guidelines-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.guideline-item {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  padding: 20px 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.04);
+  font-size: 1.1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #f1f1f1;
+}
+
+.guideline-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.06);
+}
+
+/* Optional Button Styles (if added later) */
+.btn-outline-light {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 10px 30px;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+.btn-outline-light:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .guidelines-heading {
+    font-size: 2.4rem;
+  }
+
+  .guideline-item {
+    font-size: 1rem;
+    padding: 16px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .guidelines-heading {
+    font-size: 2rem;
+  }
+
+  .guideline-item {
+    padding: 14px 18px;
+  }
+}
