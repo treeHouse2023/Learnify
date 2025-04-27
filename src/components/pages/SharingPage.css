@@ -1,56 +1,39 @@
-/* Sharing Page Hero Section */
-.sharing-hero {
-  background-color: #000; /* Deep black background */
-  background-size: cover;
-  background-position: center;
+/* Make the entire page background black */
+body,
+html {
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.sharing-container {
+  background: #000000; /* PURE BLACK, no gradient */
   min-height: 100vh;
+  padding: 80px 20px 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  margin: 0;
-  padding: 0;
+  color: #ffffff;
+}
+
+.sharing-card {
+  background: #121212; /* Slightly lighter black inside the card */
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+  transition: all 0.4s ease;
   width: 100%;
-  overflow: hidden;
+  max-width: 750px;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
 }
 
-/* Shared Styling for Sharing Page Inputs & Buttons */
-input.form-control-lg,
-select.form-control-lg {
-  border-radius: 8px;
-  border: 1px solid #444;
-  background-color: #111;
-  color: #fff;
-  padding: 12px;
-}
-
-input.form-control-lg::placeholder {
-  color: #aaa;
-}
-
-.btn-primary {
-  background-color: #1f1f1f;
-  color: #fff;
-  border: 1px solid #555;
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: #333;
-  border-color: #666;
-}
-
-/* Text Animations */
-.text-section h1,
-.text-section p {
-  animation: fadeIn 2s ease forwards;
-  color: #fff;
-}
-
-@keyframes fadeIn {
+@keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(40px);
   }
   100% {
     opacity: 1;
@@ -58,47 +41,136 @@ input.form-control-lg::placeholder {
   }
 }
 
-/* Drag-and-Drop Zone */
-.drop-zone {
-  border: 2px dashed #666;
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #ccc;
-  border-radius: 15px;
-  min-height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.sharing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 1);
+}
+
+/* Headings and Text */
+.sharing-card h2,
+.sharing-card h3,
+.sharing-card h5 {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
   text-align: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  max-width: 100%;
-  width: 750px;
-  margin: 0 auto;
 }
 
-.drop-zone.drag-active {
-  background-color: rgba(255, 255, 255, 0.1);
+.sharing-card p,
+.sharing-card label,
+.sharing-card input,
+.sharing-card a {
+  color: #dddddd;
+  font-size: 1.05rem;
 }
 
-.drop-zone p {
-  margin: 0;
-  font-size: 1.2rem;
-  animation: fadeIn 2s ease forwards;
-  color: #ccc;
+/* Placeholder */
+.sharing-card input::placeholder {
+  color: #aaaaaa;
 }
 
-.drop-zone input[type="file"] {
-  display: none;
+/* Input Fields */
+.form-control {
+  background-color: #1f1f1f;
+  border: 1px solid #333333;
+  border-radius: 12px;
+  padding: 10px 15px;
+  color: #ffffff;
+  transition: background 0.3s, border 0.3s;
 }
 
-/* Responsive Design */
+.form-control:focus {
+  background-color: #2a2a2a;
+  border-color: #43cea2;
+  box-shadow: none;
+  color: #ffffff;
+}
+
+/* Buttons */
+.btn-custom,
+.sharing-card .btn-success {
+  background-color: #43cea2; /* SOLID greenish color */
+  border: none;
+  border-radius: 50px;
+  padding: 12px 35px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(67, 206, 162, 0.4);
+}
+
+.btn-custom:hover,
+.sharing-card .btn-success:hover {
+  background-color: #34d399; /* Slight lighter neon green on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 24px rgba(52, 211, 153, 0.6);
+  color: #ffffff;
+}
+
+/* Uploaded Link */
+.text-success {
+  color: #43cea2 !important;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.text-success:hover {
+  color: #34d399 !important;
+}
+
+/* Radio Buttons */
+.form-check-input:checked {
+  background-color: #43cea2;
+  border-color: #43cea2;
+}
+
+/* Scrollbar */
+.sharing-card::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sharing-card::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+
+.sharing-card::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* Alerts */
+.alert-info {
+  background-color: rgba(67, 206, 162, 0.08);
+  border: none;
+  color: #43cea2;
+  font-weight: 600;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .sharing-hero {
+  .sharing-card {
+    padding: 30px;
+  }
+
+  .sharing-card p,
+  .sharing-card label,
+  .sharing-card input,
+  .sharing-card a {
+    font-size: 1rem;
+  }
+
+  .sharing-card h2 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .sharing-card {
     padding: 20px;
   }
 
-  .drop-zone {
-    width: 100%;
-    margin-left: 0;
+  .sharing-card h2 {
+    font-size: 2rem;
   }
 }

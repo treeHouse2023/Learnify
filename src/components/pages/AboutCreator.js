@@ -123,7 +123,7 @@ function AboutCreator() {
             <input
               type="hidden"
               name="access_key"
-              value="REPLACE_WITH_YOUR_KEY"
+              value="1ef5c2bb-348c-4c9d-a22d-1acb5ec90420"
             />
             <input
               type="text"
