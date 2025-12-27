@@ -1,6 +1,6 @@
 /* Sharing Page Hero Section */
 .sharing-hero {
-  background-color: #000; /* Deep black background */
+  background-color: #000;
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -14,36 +14,86 @@
   overflow: hidden;
 }
 
-/* Shared Styling for Sharing Page Inputs & Buttons */
+/* Form Inputs & Selectors */
 input.form-control-lg,
 select.form-control-lg {
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid #444;
   background-color: #111;
-  color: #fff;
-  padding: 12px;
+  color: #fff !important;
+  padding: 14px;
+  font-size: 1rem;
 }
 
 input.form-control-lg::placeholder {
   color: #aaa;
 }
 
+input.form-control-lg:focus {
+  outline: none;
+  border-color: #777;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  background-color: #181818;
+}
+
+/* Animated Input Class */
+input.animated-placeholder {
+  animation: fadeIn 1.2s ease-in-out;
+  transition: all 0.3s ease;
+}
+
+/* Primary Button Styling */
 .btn-primary {
   background-color: #1f1f1f;
   color: #fff;
   border: 1px solid #555;
   transition: all 0.3s ease;
+  font-weight: 500;
+  padding: 12px 30px;
+  border-radius: 8px;
 }
 
 .btn-primary:hover {
-  background-color: #333;
-  border-color: #666;
+  background-color: #444;
+  border-color: #777;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+  transition-delay: 0.3s; /* Delay hover effect by 0.3s */
 }
 
-/* Text Animations */
+/* Back Button */
+.btn-outline-light {
+  border-color: #888;
+  color: #eee;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background-color: #fff;
+  color: #000;
+  border-color: #fff;
+  transform: scale(1.05);
+  transition-delay: 0.2s; /* Delay hover effect by 0.2s */
+}
+
+/* File List Delete Button */
+.list-group-item {
+  background-color: #111;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.btn-danger.btn-sm {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* Headings */
 .text-section h1,
 .text-section p {
   animation: fadeIn 2s ease forwards;
+  animation-delay: 0.5s; /* Delay the fade-in by 0.5s */
   color: #fff;
 }
 
@@ -58,12 +108,12 @@ input.form-control-lg::placeholder {
   }
 }
 
-/* Drag-and-Drop Zone */
+/* Drop Zone */
 .drop-zone {
   border: 2px dashed #666;
   background-color: rgba(255, 255, 255, 0.05);
   color: #ccc;
-  border-radius: 15px;
+  border-radius: 16px;
   min-height: 150px;
   display: flex;
   align-items: center;
@@ -74,24 +124,41 @@ input.form-control-lg::placeholder {
   max-width: 100%;
   width: 750px;
   margin: 0 auto;
+  padding: 30px;
+}
+
+.drop-zone:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: scale(1.02);
+  transition-delay: 0.2s; /* Delay hover effect by 0.2s */
 }
 
 .drop-zone.drag-active {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
-.drop-zone p {
-  margin: 0;
-  font-size: 1.2rem;
-  animation: fadeIn 2s ease forwards;
+.drop-zone .file-label {
+  font-size: 1.1rem;
   color: #ccc;
+  animation: fadeIn 2s ease forwards;
 }
 
 .drop-zone input[type="file"] {
   display: none;
 }
 
-/* Responsive Design */
+/* Uploaded Files */
+.uploaded-files {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.uploaded-files h5 {
+  color: #eee;
+  margin-bottom: 10px;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .sharing-hero {
     padding: 20px;
@@ -100,5 +167,6 @@ input.form-control-lg::placeholder {
   .drop-zone {
     width: 100%;
     margin-left: 0;
+    padding: 20px;
   }
 }
