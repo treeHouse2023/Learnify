@@ -1,87 +1,287 @@
+/* ===============================
+   PAGE WRAPPER
+================================ */
 .uploaded-resources-wrapper {
-  background-color: #000;
-  color: #fff;
   min-height: 100vh;
   padding-top: 80px;
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+  background: rgba(5, 8, 20, 0.75);
+  backdrop-filter: blur(14px);
 }
 
+/* ===============================
+   ENTRY ANIMATIONS
+================================ */
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(45px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   SEARCH SECTION
+================================ */
 .search-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 60px;
+  margin-bottom: 70px;
   padding: 0 20px;
 }
 
-.heading {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  font-weight: 700;
-  text-align: center;
+/* ===============================
+   LOGO
+================================ */
+@keyframes logoFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.app-logo {
+  width: 90px; /* ✅ FIXED SIZE */
+  max-width: 35vw; /* ✅ RESPONSIVE */
+  height: auto;
+  object-fit: contain;
+
+  animation: logoFloat 4s ease-in-out infinite;
+  transition: transform 0.4s ease, filter 0.4s ease;
+
+  filter: drop-shadow(0 0 14px rgba(108, 242, 255, 0.45));
+}
+
+.app-logo:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 22px rgba(108, 242, 255, 0.9))
+    drop-shadow(0 0 40px rgba(155, 140, 255, 0.7))
+    drop-shadow(0 0 60px rgba(255, 143, 216, 0.6));
+}
+
+/* ===============================
+   HEADING
+================================ */
+.heading {
+  font-size: 3rem;
+  margin-bottom: 35px;
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: 1.2px;
+
+  background: linear-gradient(90deg, #6cf2ff, #9b8cff, #ff8fd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  opacity: 0;
+  animation: fadeSlideDown 0.9s ease forwards;
+  animation-delay: 2s;
+}
+
+/* ===============================
+   SEARCH INPUT
+================================ */
 .search-input {
   width: 100%;
-  max-width: 700px;
-  padding: 18px 28px;
+  max-width: 720px;
+  padding: 18px 30px;
   font-size: 1.2rem;
   border-radius: 999px;
-  border: none;
-  background-color: #1a1a1a;
-  color: #fff;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  background: linear-gradient(
+      120deg,
+      rgba(108, 242, 255, 0.15),
+      rgba(155, 140, 255, 0.15),
+      rgba(255, 143, 216, 0.15)
+    ),
+    rgba(10, 15, 30, 0.6);
+
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+
+  box-shadow: 0 0 25px rgba(108, 242, 255, 0.25),
+    inset 0 0 15px rgba(255, 255, 255, 0.1);
+
   outline: none;
-  transition: box-shadow 0.3s ease;
+  transition: all 0.45s ease;
+
+  opacity: 0;
+  animation: fadeSlideDown 0.9s ease forwards;
+  animation-delay: 2.3s;
 }
 
+.search-input::placeholder {
+  color: #c7d3f5;
+}
+
+.search-input:hover,
 .search-input:focus {
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  transform: scale(1.03);
+  box-shadow: 0 20px 60px rgba(255, 255, 255, 0.25),
+    0 0 50px rgba(155, 140, 255, 0.6);
 }
 
+/* ===============================
+   CARDS SECTION
+================================ */
 .cards-section {
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
-  padding: 0 40px 80px;
+  gap: 45px;
+  padding: 0 40px 90px;
 }
 
-/* Card Wrapper */
+/* ===============================
+   CARD WRAPPER
+================================ */
 .card-wrapper {
   flex: 0 0 calc(33.333% - 40px);
   max-width: calc(33.333% - 40px);
+
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
+  transform: translateY(60px);
+  animation: fadeSlideUp 1s ease forwards;
 }
 
-.card-wrapper.visible {
-  opacity: 1;
-  transform: translateY(0);
+.card-wrapper:nth-child(1) {
+  animation-delay: 0.5s;
+}
+.card-wrapper:nth-child(2) {
+  animation-delay: 0.65s;
+}
+.card-wrapper:nth-child(3) {
+  animation-delay: 0.8s;
+}
+.card-wrapper:nth-child(4) {
+  animation-delay: 0.95s;
+}
+.card-wrapper:nth-child(5) {
+  animation-delay: 1.1s;
+}
+.card-wrapper:nth-child(6) {
+  animation-delay: 1.25s;
 }
 
+/* ===============================
+   GLASS CARD
+================================ */
 .card.custom-card {
-  background-color: #111;
-  color: #fff;
-  border-radius: 20px;
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.04)
+  );
+  backdrop-filter: blur(14px);
+
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   overflow: hidden;
-  transition: transform 0.3s ease;
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.03);
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+
+  transition: all 0.45s ease;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.card.custom-card:hover {
-  transform: translateY(-8px);
+.card.custom-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(108, 242, 255, 0.35),
+    rgba(155, 140, 255, 0.35),
+    rgba(255, 143, 216, 0.35)
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
+.card.custom-card:hover::before {
+  opacity: 1;
+}
+
+.card.custom-card:hover {
+  transform: translateY(-14px) scale(1.03);
+  box-shadow: 0 20px 60px rgba(255, 255, 255, 0.7),
+    0 0 50px rgba(155, 140, 255, 0.6);
+}
+
+.card.custom-card * {
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+}
+
+/* ===============================
+   IMAGE
+================================ */
 .card-img-top {
   max-height: 180px;
   object-fit: cover;
   width: 100%;
+  filter: contrast(1.15) saturate(1.2);
 }
 
-/* Responsive Breakpoints */
+/* ===============================
+   DOWNLOAD BUTTON
+================================ */
+.glass-download-btn {
+  padding: 12px 30px;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  border: none;
+  color: #000;
+
+  background: linear-gradient(135deg, #6cf2ff, #9b8cff, #ff8fd8);
+  box-shadow: 0 0 30px rgba(155, 140, 255, 0.6);
+
+  transition: all 0.35s ease;
+}
+
+.glass-download-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 55px rgba(255, 143, 216, 0.9);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
 @media (max-width: 1024px) {
   .card-wrapper {
     flex: 0 0 calc(50% - 30px);
@@ -92,12 +292,16 @@
 @media (max-width: 768px) {
   .search-input {
     font-size: 1rem;
-    padding: 14px 20px;
+    padding: 14px 22px;
   }
 
   .cards-section {
     gap: 30px;
-    padding: 0 20px 60px;
+    padding: 0 20px 70px;
+  }
+
+  .heading {
+    font-size: 2.4rem;
   }
 }
 
@@ -109,5 +313,9 @@
 
   .heading {
     font-size: 2rem;
+  }
+
+  .app-logo {
+    width: 75px;
   }
 }

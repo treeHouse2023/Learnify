@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./UploadedResources.css";
 
-// ✅ Importing Images
-
 import Algorithm_design_and_analysis_MSE_2022_Surbhi from "./Samples/Algorithm design and analysis_MSE_2022_Surbhi.jpg";
 import algorithm_design_and_programming_C_ESE_2024_samipta from "./Samples/algorithm design and programming C_ESE_2024_samipta.jpg";
 import algorithm_design_and_programming_using_C_BCA_SHUBHA_ESE_2024 from "./Samples/algorithm design and programming using C_BCA_SHUBHA_ESE_2024.jpg";
@@ -186,9 +184,38 @@ import coreJavaImg1 from "./Samples/Core_Java- MSE.jpg";
 import machineLearningImg from "./Samples/Machine_Learning- ESE.jpg";
 import computerGraphicsImg from "./Samples/Computer_Graphics- ESE.jpg";
 import coreJavaImg from "./Samples/Core_Java- ESE.jpg";
+import BUSINESS_ENVIRONMENT_AND_INDIAN_ETHOS_ESE_2025 from "./Samples/BUSINESS ENVIRONMENT AND INDIAN ETHOS_ESE_2025.png";
+import Management_Process_and_OrganisationalBehaviour_ESE_2025 from "./Samples/Management Process and OrganisationalBehaviour_ESE_2025.png";
+import Managerial_Economics_ESE_2025 from "./Samples/Managerial Economics_ESE_2025.jpg";
+import Quantitative_Methods_ESE_2025 from "./Samples/Quantitative Methods_ESE_2025.png";
+import Accounting_for_Decision_Making_ESE_2025 from "./Samples/Accounting for Decision Making_ESE_2025.png";
+import Python_Programming_ESE_2025 from "./Samples/Python Programming_ESE_2025.jpg";
+import Software_Engineering_and_Testing_2025_ESE from "./Samples/Software Engineering and Testing_2025_ese.jpg";
+import MBA_MSE_Sem_1_page_0007 from "./Samples/MBA MSE Sem 1_page-0007.jpg";
+import Quantitative_Methods_2023_MSE from "./Samples/Quantitative Methods_2023_MSE.jpg";
+import Managerial_Economics_Business_Economics_2023_MSE from "./Samples/Managerial Economics Business Economics_2023_MSE.jpg";
+import Management_Processes_and_Organisational_Behaviour_MSE_2023 from "./Samples/Management Processes & Organisational Behaviour_mse_2023.jpg";
+import Business_Environment_and_Indian_Ethos_MSE_2023 from "./Samples/Business Environment and Indian Ethos_MSE_2023.JPG";
+import Business_Environment_and_Indian_Ethos_ESE_2023 from "./Samples/Business Environment and Indian Ethos_ese_2023.jpg";
+import BUSINESS_ENVIRONMENT_AND_INDIAN_ETHOS_ESE_2024 from "./Samples/BUSINESS ENVIRONMENT AND INDIAN ETHOS_ese_2024.jpg";
+import Management_Process_and_Organisational_Behaviour_ESE_2024 from "./Samples/Management Process and Organisational Behaviour_ese_2024.jpg";
+import Corporate_Law_and_Governance_ESE_2023 from "./Samples/Corporate Law and Governance_ese_2023.jpg";
+import Management_Processes_and_Organisational_Behaviour_ESE_2023_PALVI from "./Samples/Management Processes & Organisational Behaviour_ese_2023_PALVI.jpg";
+import Managerial_Economics_Business_Economics_ESE_2023 from "./Samples/Managerial Economics  Business Economics_ESE_2023_PALVI.png";
+import Accounting_for_Decision_Making_ESE_2024_PALVI from "./Samples/Accounting for Decision Making_ese_2024_PALVI.jpg";
+import Quantitative_Methods_ESE_2024_PALVI from "./Samples/Quantitative Methods_ese_2024_PALVI.png";
+import Quantitative_Methods_ESE_2023_PALVI from "./Samples/Quantitative Methods_ese_2023_PALVI.png";
+import Accounting_for_Decision_Making_2024_ESE_PALVI from "./Samples/Accounting for Decision Making_2024_ESE_PALVI.png";
+import Managerial_Economics_Business_Economics_ESE_2023_PALVI from "./Samples/Managerial Economics  Business Economics_ESE_2023_PALVI.png";
+import Data_Structures_and_File_Processing_ESE_2025_navjot from "./Samples/Data Structures and File Processing_ESE_2025_navjot.jpg";
+import Title_Accounting_for_Decision_Making_MSE_2023_palvi from "./Samples/Title Accounting for Decision Making_MSE_2023_palvi.png";
+import Discrete_Mathematical_Structures_ESE_2025_Navjot from "./Samples/Discrete Mathematical Structures_ESE_2025_Navjot.png";
+import Data_Structures_and_File_Processing_2025_ESE_Navjot from "./Samples/Data Structures and File Processing_2025_ESE_Navjot.png";
+import CORPORATE_LAW_AND_GOVERNANCE_MSE_2023 from "./Samples/CORPORATE LAW AND GOVERNANCE_MSE_2023.jpg";
+
 const UploadedResources = () => {
   const [query, setQuery] = useState("");
-  // ✅ Course Data
+
   const courses = {
     4: [
       {
@@ -199,6 +226,224 @@ const UploadedResources = () => {
         contributor: "Surbhi",
         imgSrc: Algorithm_design_and_analysis_MSE_2022_Surbhi,
       },
+      {
+        title: "Business Environment and Indian Ethos",
+        code: "MGT501",
+        semester: "MSE",
+        session: "2025",
+        contributor: "Nishant",
+        imgSrc: BUSINESS_ENVIRONMENT_AND_INDIAN_ETHOS_ESE_2025,
+      },
+      {
+        title: "Management Process and Organisational Behaviour",
+        code: "MGT503",
+        semester: "MSE",
+        session: "2025",
+        contributor: "Nishant",
+        imgSrc: Management_Process_and_OrganisationalBehaviour_ESE_2025,
+      },
+      {
+        title: "Managerial Economics",
+        code: "ECO501",
+        semester: "MSE",
+        session: "2025",
+        contributor: "Nishant",
+        imgSrc: Managerial_Economics_ESE_2025,
+      },
+      {
+        title: "Quantitative Methods",
+        code: "ECO502",
+        semester: "MSE",
+        session: "2025",
+        contributor: "Nishant",
+        imgSrc: Quantitative_Methods_ESE_2025,
+      },
+      {
+        title: "Accounting for Decision Making",
+        code: "MGT502",
+        semester: "MSE",
+        session: "2025",
+        contributor: "Nishant",
+        imgSrc: Accounting_for_Decision_Making_ESE_2025,
+      },
+      {
+        title: "Software Engineering and Testing",
+        code: "CSA660",
+        semester: "MSE",
+        session: "2025",
+        contributor: "Nishant",
+        imgSrc: Software_Engineering_and_Testing_2025_ESE,
+      },
+      {
+        title: "MBA MSE Semester 1",
+        code: "MBA-MSE",
+        semester: "MSE",
+        session: "2023",
+        contributor: "Nishant",
+        imgSrc: MBA_MSE_Sem_1_page_0007,
+      },
+      {
+        title: "Quantitative Methods",
+        code: "ECO502",
+        semester: "MSE",
+        session: "2023",
+        contributor: "Nishant",
+        imgSrc: Quantitative_Methods_2023_MSE,
+      },
+      {
+        title: "Managerial Economics Business Economics",
+        code: "ECO501",
+        semester: "MSE",
+        session: "2023",
+        contributor: "Nishant",
+        imgSrc: Managerial_Economics_Business_Economics_2023_MSE,
+      },
+      {
+        title: "Management Process and Organisational Behaviour",
+        code: "MGT503",
+        semester: "MSE",
+        session: "2023",
+        contributor: "Nishant",
+        imgSrc: Management_Processes_and_Organisational_Behaviour_MSE_2023,
+      },
+      {
+        title: "Business Environment and Indian Ethos",
+        code: "MGT501",
+        semester: "MSE",
+        session: "2023",
+        contributor: "Nishant",
+        imgSrc: Business_Environment_and_Indian_Ethos_MSE_2023,
+      },
+      {
+        title: "Business Environment and Indian Ethos",
+        code: "MGT501",
+        semester: "MSE",
+        session: "2023",
+        contributor: "Nishant",
+        imgSrc: Business_Environment_and_Indian_Ethos_ESE_2023,
+      },
+      {
+        title: "Business Environment and Indian Ethos",
+        code: "MGT501",
+        semester: "MSE",
+        session: "2024",
+        contributor: "Nishant",
+        imgSrc: BUSINESS_ENVIRONMENT_AND_INDIAN_ETHOS_ESE_2024,
+      },
+      {
+        title: "Management Process and Organisational Behaviour",
+        code: "MGT503",
+        semester: "MSE",
+        session: "2024",
+        contributor: "Nishant",
+        imgSrc: Management_Process_and_Organisational_Behaviour_ESE_2024,
+      },
+      {
+        title: "Management Process and Organisational Behaviour",
+        code: "MGT503",
+        semester: "MSE",
+        session: "2023",
+        contributor: "PALVI",
+        imgSrc:
+          Management_Processes_and_Organisational_Behaviour_ESE_2023_PALVI,
+      },
+      {
+        title: "Managerial Economics",
+        code: "ECO501",
+        semester: "MSE",
+        session: "2023",
+        contributor: "PALVI",
+        imgSrc: Managerial_Economics_Business_Economics_ESE_2023_PALVI,
+      },
+      {
+        title: "Managerial Economics Business Economics",
+        code: "ECO501",
+        semester: "MSE",
+        session: "2023",
+        contributor: "Nishant",
+        imgSrc: Managerial_Economics_Business_Economics_ESE_2023,
+      },
+      {
+        title: "Accounting for Decision Making",
+        code: "MGT502",
+        semester: "MSE",
+        session: "2024",
+        contributor: "PALVI",
+        imgSrc: Accounting_for_Decision_Making_ESE_2024_PALVI,
+      },
+      {
+        title: "Accounting for Decision Making",
+        code: "MGT502",
+        semester: "MSE",
+        session: "2024",
+        contributor: "PALVI",
+        imgSrc: Accounting_for_Decision_Making_2024_ESE_PALVI,
+      },
+      {
+        title: "Accounting for Decision Making",
+        code: "MGT502",
+        semester: "MSE",
+        session: "2023",
+        contributor: "PALVI",
+        imgSrc: Title_Accounting_for_Decision_Making_MSE_2023_palvi,
+      },
+      {
+        title: "Quantitative Methods",
+        code: "ECO502",
+        semester: "MSE",
+        session: "2024",
+        contributor: "PALVI",
+        imgSrc: Quantitative_Methods_ESE_2024_PALVI,
+      },
+      {
+        title: "Quantitative Methods",
+        code: "ECO502",
+        semester: "MSE",
+        session: "2023",
+        contributor: "PALVI",
+        imgSrc: Quantitative_Methods_ESE_2023_PALVI,
+      },
+      {
+        title: "Corporate Law and Governance",
+        code: "MGT521",
+        semester: "MSE",
+        session: "2023",
+        contributor: "Nishant",
+        imgSrc: Corporate_Law_and_Governance_ESE_2023,
+      },
+      {
+        title: "Corporate Law and Governance",
+        code: "MGT521",
+        semester: "MSE",
+        session: "2023",
+        contributor: "Nishant",
+        imgSrc: CORPORATE_LAW_AND_GOVERNANCE_MSE_2023,
+      },
+      {
+        title: "Discrete Mathematical Structures",
+        code: "CSA657",
+        semester: "MSE",
+        session: "2025",
+        contributor: "Navjot",
+        imgSrc: Discrete_Mathematical_Structures_ESE_2025_Navjot,
+      },
+      {
+        title: "Data Structures and File Processing",
+        code: "CSA663",
+        semester: "MSE",
+        session: "2025",
+        contributor: "Navjot",
+        imgSrc: Data_Structures_and_File_Processing_ESE_2025_navjot,
+      },
+      {
+        title: "Data Structures and File Processing",
+        code: "CSA663",
+        semester: "MSE",
+        session: "2025",
+        contributor: "Navjot",
+        imgSrc: Data_Structures_and_File_Processing_2025_ESE_Navjot,
+      },
+
       {
         title: "Algorithm Design and Programming C",
         code: "CSA111",
@@ -1664,7 +1909,6 @@ const UploadedResources = () => {
       return title.includes(search) || code.includes(search);
     });
 
-  // ✅ Handle Download
   const handleDownload = (imgSrc) => {
     const link = document.createElement("a");
     link.href = imgSrc;
@@ -1674,7 +1918,6 @@ const UploadedResources = () => {
     document.body.removeChild(link);
   };
 
-  // ✅ Animate Cards on Scroll
   useEffect(() => {
     const cards = document.querySelectorAll(".card-wrapper");
 
@@ -1683,7 +1926,7 @@ const UploadedResources = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
-            observer.unobserve(entry.target); // animate once
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -1693,14 +1936,22 @@ const UploadedResources = () => {
     cards.forEach((card) => observer.observe(card));
 
     return () => observer.disconnect();
-  }, [filteredCourses]); // 👈 Trigger re-observe when filtered list updates
+  }, [filteredCourses]);
 
-  // ✅ JSX Output
   return (
     <div className="uploaded-resources-wrapper">
-      {/* 🔍 Search Section */}
       <section className="search-section">
+        {/* LOGO – INSIDE SAME COMPONENT */}
+        <div className="logo-wrapper">
+          <img
+            src="/faviconicon2.png"
+            alt="Logo"
+            style={{ width: "100px", height: "100px" }}
+          />
+        </div>
+
         <h1 className="heading">Search Question Papers</h1>
+
         <input
           type="text"
           placeholder="Search by title or course code..."
@@ -1710,7 +1961,6 @@ const UploadedResources = () => {
         />
       </section>
 
-      {/* 📄 Cards Section */}
       <section className="cards-section">
         <div className="row justify-content-center">
           {filteredCourses.length > 0 ? (
@@ -1733,7 +1983,7 @@ const UploadedResources = () => {
                   </div>
                   <div className="card-body text-center">
                     <button
-                      className="btn btn-success rounded-pill px-4"
+                      className="glass-download-btn"
                       onClick={() => handleDownload(course.imgSrc)}
                     >
                       Download

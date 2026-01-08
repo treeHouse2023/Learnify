@@ -1,15 +1,14 @@
-/* Overlay & scroll lock */
 .no-scroll {
   overflow: hidden;
 }
+
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: rgba(5, 8, 20, 0.65);
   z-index: 99;
 }
 
-/* Hamburger Button */
 .hamburger-btn {
   position: fixed;
   top: 1rem;
@@ -18,8 +17,14 @@
   background: none;
   border: none;
   cursor: pointer;
-  margin-top: 30px;
+  padding: 0;
+  transition: transform 0.3s ease;
 }
+
+.hamburger-btn:hover {
+  transform: scale(1.08);
+}
+
 .hamburger,
 .hamburger::before,
 .hamburger::after {
@@ -31,77 +36,123 @@
   background-color: #fff;
   transition: all 0.3s ease;
 }
+
 .hamburger.open {
   transform: rotate(45deg);
 }
+
 .hamburger.open::before {
   transform: rotate(90deg);
   top: 0;
 }
+
 .hamburger.open::after {
   opacity: 0;
 }
 
-/* Sidebar */
 .sidebar {
   position: fixed;
   top: 0;
   left: -100%;
   width: 280px;
   height: 100vh;
-  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(
+      180deg,
+      rgba(108, 242, 255, 0.08),
+      rgba(155, 140, 255, 0.08),
+      rgba(255, 143, 216, 0.08)
+    ),
+    rgba(5, 8, 20, 0.9);
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
   color: white;
   padding: 2rem 1.5rem;
   z-index: 100;
-  transition: left 0.3s ease-in-out;
+  transition: left 0.35s ease-in-out;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.7),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
 }
+
 .sidebar.show {
   left: 0;
 }
 
-/* Close Button */
 .close-btn {
   font-size: 2rem;
   background: none;
   border: none;
-  color: white;
+  color: #ffffffcc;
   position: absolute;
   top: 1.2rem;
   right: 1.2rem;
   cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Nav Links (Top Side) */
+.close-btn:hover {
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
 .nav-links {
   list-style: none;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-  margin-top: 3.5rem;
-}
-.nav-links a {
-  color: #ffffffcc;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: color 0.3s ease;
-}
-.nav-links a:hover {
-  color: #ffffff;
+  gap: 1.4rem;
+  margin-top: 3.8rem;
 }
 
-/* Learnify Branding (Bottom) */
+.nav-links a {
+  position: relative;
+  color: #c7d3f5;
+  text-decoration: none;
+  font-size: 1.1rem;
+  letter-spacing: 0.4px;
+  transition: all 0.35s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #6cf2ff, #ff8fd8);
+  transition: width 0.35s ease;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(108, 242, 255, 0.6),
+    0 0 20px rgba(155, 140, 255, 0.5);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
 .nav-brand-bottom {
   text-align: center;
   padding-bottom: 2rem;
-  opacity: 0.8;
 }
+
+.nav-brand-bottom img {
+  width: 100px;
+  height: auto;
+
+  margin-top: 100px;
+}
+
 .nav-brand-bottom h2 {
   font-size: 1.6rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 2px;
-  color: #ffffffcc;
+  background: linear-gradient(90deg, #6cf2ff, #9b8cff, #ff8fd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(108, 242, 255, 0.4);
 }

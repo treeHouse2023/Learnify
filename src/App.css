@@ -1,3 +1,45 @@
+/* ===============================
+   GLOBAL RESET (CRITICAL)
+================================ */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: transparent !important;
+}
+
+/* ===============================
+   VIDEO BACKGROUND
+================================ */
+.video-bg-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.video-bg-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===============================
+   APP WRAPPER
+================================ */
+.app-content {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+}
+
+/* ===============================
+   REACT DEFAULT STYLES
+================================ */
 .App {
   text-align: center;
 }
@@ -13,21 +55,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -37,29 +64,27 @@
   }
 }
 
-/* New styles for Guidelines and AboutCreator pages */
+.App-link {
+  color: #61dafb;
+}
+
+/* ===============================
+   HERO / PAGE OVERLAY
+================================ */
 .hero {
-  background: linear-gradient(135deg, #43cea2, #185a9d);
   min-height: 100vh;
-  animation: gradientBackground 10s ease infinite;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
 }
 
-@keyframes gradientBackground {
-  0% {
-    background: linear-gradient(135deg, #43cea2, #185a9d);
-  }
-  50% {
-    background: linear-gradient(135deg, #185a9d, #43cea2);
-  }
-  100% {
-    background: linear-gradient(135deg, #43cea2, #185a9d);
-  }
-}
-
+/* ===============================
+   TEXT ANIMATIONS
+================================ */
 .text-section h1,
 .text-section p {
   animation: fadeIn 2s ease forwards;
@@ -70,11 +95,11 @@
 }
 
 @keyframes fadeIn {
-  0% {
+  from {
     opacity: 0;
     transform: translateY(-20px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }

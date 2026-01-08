@@ -4,30 +4,57 @@ import "./GuidelinesPage.css";
 
 function GuidelinesPage() {
   const guidelines = [
-    "Ensure all uploaded documents are in PDF format.",
-    "File size should not exceed 10MB.",
-    "Name your files appropriately, e.g., `Year_Subject_Program.pdf`.",
-    "Double-check the content before uploading.",
-    "Respect copyright and privacy laws.",
-    "Use the proper channels for sensitive content.",
-    "Report any issues encountered during the upload process.",
+    "Upload only clear and readable question papers or academic documents.",
+    "Accepted formats include PDF and high-quality images.",
+    "File size must not exceed 10MB per upload.",
+    "Use proper naming format (Year_Subject_Program.pdf).",
+    "Ensure documents do not contain personal or sensitive information.",
+    "Avoid uploading copyrighted or paid materials.",
+    "Do not submit duplicate or already available papers.",
+    "Irrelevant or misleading submissions will be rejected.",
   ];
 
   return (
     <section className="guidelines-hero">
-      <div className="container d-flex flex-column align-items-center justify-content-center text-white text-center py-5">
-        <h1 className="guidelines-heading mb-5">
-          Learnify <span className="brand-highlight">Guidelines</span>
+      <div className="guidelines-container">
+        <h1 className="guidelines-heading">
+          Learnify <span>Guidelines</span>
         </h1>
-        <div className="row justify-content-center w-100">
-          <div className="col-lg-8">
-            <ul className="guidelines-list">
-              {guidelines.map((guideline, index) => (
-                <li key={index} className="guideline-item mb-3">
-                  {guideline}
-                </li>
-              ))}
-            </ul>
+
+        <div className="guidelines-card">
+          <p className="guidelines-intro">
+            Learnify follows a structured and transparent review process to
+            ensure that every shared resource remains accurate, helpful, and
+            fair for all students.
+          </p>
+
+          <div className="guidelines-divider" />
+
+          <h3 className="guidelines-subtitle">Submission Rules</h3>
+
+          <ul className="guidelines-list">
+            {guidelines.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+
+          <div className="guidelines-divider" />
+
+          <h3 className="guidelines-subtitle">Review & Approval</h3>
+
+          <p>
+            Every uploaded document goes through a{" "}
+            <strong>manual verification process</strong> for clarity, relevance,
+            and duplication checks.
+          </p>
+
+          <p>
+            Approval may take approximately <strong>3–4 working days</strong>{" "}
+            before your contribution becomes publicly visible.
+          </p>
+
+          <div className="guidelines-note">
+            Repeated violations may result in restricted upload access.
           </div>
         </div>
       </div>
