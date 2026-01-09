@@ -1,23 +1,29 @@
-/* Body & Background */
-body,
-html {
+/* ===============================
+   GLOBAL (DO NOT PAINT BACKGROUND)
+================================ */
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom, #000000, #1a1a1a); /* Black gradient */
   color: #fff;
   font-family: "Segoe UI", sans-serif;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  background: transparent;
 }
 
-/* Container Setup */
+/* ===============================
+   CONTAINER SETUP
+================================ */
 .container {
   margin-top: 120px;
   padding: 0 20px;
 }
 
-/* ✨ Hero Search Section */
+/* ===============================
+   HERO SEARCH SECTION (OVERLAY)
+================================ */
 .hero-section {
   display: flex;
   justify-content: center;
@@ -25,9 +31,21 @@ html {
   flex-direction: column;
   min-height: 100vh;
   text-align: center;
+
+  /* ✅ MOVED FROM BODY */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.85),
+    rgba(26, 26, 26, 0.85)
+  );
+
+  position: relative;
+  z-index: 1;
 }
 
-/* Fancy Search Bar */
+/* ===============================
+   SEARCH BAR
+================================ */
 .search-bar input {
   width: 90%;
   max-width: 600px;
@@ -53,7 +71,9 @@ html {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
-/* Section Title */
+/* ===============================
+   HERO TITLE
+================================ */
 .hero-section h1 {
   font-size: 2.5rem;
   margin-bottom: 30px;
@@ -61,12 +81,16 @@ html {
   color: #f2f2f2;
 }
 
-/* 👇 Cards Section */
+/* ===============================
+   CARDS SECTION
+================================ */
 .cards-section {
   padding-top: 60px;
 }
 
-/* Card Style */
+/* ===============================
+   CARD STYLE
+================================ */
 .card {
   background-color: #1a1a1a;
   color: #eee;
@@ -84,7 +108,9 @@ html {
   box-shadow: 0 12px 30px rgba(255, 255, 255, 0.08);
 }
 
-/* Image Setup */
+/* ===============================
+   CARD IMAGE
+================================ */
 .card-img-top {
   height: 200px;
   object-fit: cover;
@@ -92,12 +118,16 @@ html {
   border-top-right-radius: 16px;
 }
 
-/* Card Text */
+/* ===============================
+   CARD BODY
+================================ */
 .card-body {
   padding: 16px;
 }
 
-/* Button */
+/* ===============================
+   BUTTON
+================================ */
 .btn-primary {
   background-color: #fff;
   color: #000;
@@ -111,7 +141,9 @@ html {
   color: #fff;
 }
 
-/* ✨ Card Animation */
+/* ===============================
+   CARD ANIMATION
+================================ */
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -119,7 +151,6 @@ html {
   }
 }
 
-/* Animate each card with delay */
 .card:nth-child(1) {
   animation-delay: 0.1s;
 }
@@ -132,9 +163,10 @@ html {
 .card:nth-child(4) {
   animation-delay: 0.4s;
 }
-/* Add more as needed... */
 
-/* Responsive */
+/* ===============================
+   RESPONSIVE
+================================ */
 @media (max-width: 768px) {
   .search-bar input {
     font-size: 1.2rem;
@@ -149,16 +181,10 @@ html {
     font-size: 2rem;
   }
 }
-body {
-  background-color: #000;
-  color: #fff;
-  font-family: "Segoe UI", sans-serif;
-}
 
-h1 {
-  font-size: 2.5rem;
-}
-
+/* ===============================
+   SECOND SEARCH INPUT (UNCHANGED)
+================================ */
 .search-bar .search-input {
   width: 80%;
   max-width: 600px;
@@ -173,18 +199,15 @@ h1 {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
 }
 
-.search-bar .search-input::placeholder {
-  color: #aaa;
-  font-style: italic;
-}
-
 .search-bar .search-input:focus {
   outline: none;
   background: #222;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
-/* Card Design */
+/* ===============================
+   CUSTOM CARD (UNCHANGED)
+================================ */
 .custom-card {
   background-color: #1a1a1a;
   color: #eee;
@@ -202,8 +225,6 @@ h1 {
 .custom-card .card-img-top {
   height: 200px;
   object-fit: cover;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
 }
 
 .custom-card .btn-primary {
@@ -213,26 +234,9 @@ h1 {
   font-weight: 600;
   border: none;
   padding: 10px 24px;
-  transition: 0.3s ease;
 }
 
 .custom-card .btn-primary:hover {
   background-color: #444;
   color: #fff;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .search-bar .search-input {
-    width: 90%;
-    font-size: 1rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  .custom-card .card-img-top {
-    height: 160px;
-  }
 }

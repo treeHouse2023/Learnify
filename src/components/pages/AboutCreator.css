@@ -1,80 +1,204 @@
 .about-creator-section {
-  padding: 5rem 2rem;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  color: #fff;
+  padding: 120px 20px;
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
 }
 
+.creator-glass-card {
+  width: 100%;
+  max-width: 1600px;
+  padding: 64px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(0, 0, 0, 0.75)
+  );
+  backdrop-filter: blur(22px);
+  border-radius: 32px;
+  box-shadow: 0 90px 160px rgba(0, 0, 0, 0.9),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+/* ================= PROFILE HEADER ================= */
+
 .creator-image {
-  width: 260px;
-  height: 260px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  border: 5px solid #fff;
-  margin-bottom: 20px;
+  object-fit: cover;
+  margin: 0 auto 20px;
+  display: block;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.15),
+    0 40px 100px rgba(0, 0, 0, 0.9);
+}
+
+.creator-name {
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.creator-roles {
+  text-align: center;
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 60px;
+}
+
+/* ================= SECTION CARD ================= */
+
+.creator-card {
+  max-width: 1200px;
+  margin: 0 auto 56px;
+  padding: 36px 42px;
+
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(14px);
+  border-radius: 24px;
+
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 30px 80px rgba(0, 0, 0, 0.85);
+}
+
+.creator-card h3 {
+  font-size: 1.35rem;
+  color: #cfe9ff;
+  margin-bottom: 14px;
+}
+
+.creator-card p {
+  max-width: 900px;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  opacity: 0.92;
+}
+
+/* ================= ACHIEVEMENT LIST ================= */
+
+.creator-achievements {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.creator-achievements li {
+  padding: 14px 0;
+  font-size: 1rem;
+  opacity: 0.9;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.creator-achievements li:last-child {
+  border-bottom: none;
+}
+
+/* ================= IMPACT CARD ================= */
+
+.creator-impact {
+  max-width: 1100px;
+  margin: 70px auto;
+  padding: 40px 44px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(90, 160, 255, 0.18),
+    rgba(40, 90, 200, 0.55)
+  );
+
+  border-radius: 26px;
+  box-shadow: inset 0 0 0 1px rgba(160, 220, 255, 0.35),
+    0 40px 100px rgba(0, 0, 0, 0.9);
+}
+
+.creator-impact p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+/* ================= SOCIAL ================= */
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  margin: 70px 0 50px;
 }
 
 .social-links a {
-  color: white;
-  font-size: 24px;
-  margin: 0 10px;
-  transition: transform 0.3s ease;
+  font-size: 26px;
+  color: #ffffff;
+  transition: all 0.3s ease;
 }
 
 .social-links a:hover {
-  transform: scale(1.2);
-  color: #e94560;
+  color: #9fd3ff;
+  transform: translateY(-4px);
 }
 
+/* ================= CONTACT ================= */
+
 .contact-form {
-  margin-top: 40px;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-form p {
+  opacity: 0.85;
+  margin-bottom: 30px;
 }
 
 .contact-input,
 .contact-textarea {
   width: 100%;
-  max-width: 600px;
-  margin: 10px auto;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  display: block;
-  background: #fff;
-  color: #333;
-}
-
-.contact-textarea {
-  resize: vertical;
+  margin-bottom: 14px;
+  padding: 14px 18px;
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
 }
 
 .contact-submit-btn {
-  padding: 12px 30px;
-  background-color: #e94560;
-  color: #fff;
+  margin-top: 18px;
+  padding: 14px 46px;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(90, 160, 255, 0.25),
+    rgba(40, 90, 200, 0.65)
+  );
+  color: #ffffff;
   border: none;
-  border-radius: 25px;
-  font-size: 1rem;
-  margin-top: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.contact-submit-btn:hover {
-  background-color: #c3344c;
+/* ================= FOOTER ================= */
+
+.back-btn {
+  display: block;
+  margin: 70px auto 0;
+  width: fit-content;
+  padding: 10px 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  text-decoration: none;
 }
+
+/* ================= RESPONSIVE ================= */
 
 @media (max-width: 768px) {
-  .creator-image {
-    width: 200px;
-    height: 200px;
+  .creator-glass-card {
+    padding: 44px 24px;
   }
 
-  h1 {
-    font-size: 2.2rem;
-  }
-
-  .contact-input,
-  .contact-textarea {
-    width: 90%;
+  .creator-card,
+  .creator-impact {
+    padding: 28px 22px;
+    text-align: center;
   }
 }

@@ -60,11 +60,11 @@ const NavBar = () => {
             </Link>
           </li>
         </ul>
-
-        {/* Learnify Branding */}
         <div className="nav-brand-bottom">
+          <img src="/faviconicon2.png" alt="Learnify Logo" />
           <h2>Learnify</h2>
         </div>
+        {/* Learnify Branding */}
       </nav>
     </>
   );

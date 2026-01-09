@@ -64,6 +64,7 @@ function SharingPage() {
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [dragActive, setDragActive] = useState(false);
+  const [status, setStatus] = useState("");
 
   // Dynamic placeholders with adjusted speed for each field
   const subjectPlaceholder = useDynamicPlaceholder(
@@ -76,26 +77,26 @@ function SharingPage() {
     ],
     70,
     60
-  ); // Adjust typing and deleting speed for subject
+  );
 
   const courseCodePlaceholder = useDynamicPlaceholder(
     ["CSA301", "CSE204", "CSA105", "CSE101"],
     100,
     60
-  ); // Adjust typing and deleting speed for courseCode
+  );
 
   const semesterPlaceholder = useDynamicPlaceholder(
     ["MSE", "ESE", "Reappear", "Practical"],
     90,
     60
-  ); // Adjust typing and deleting speed for semester
+  );
 
-  const sessionPlaceholder = useDynamicPlaceholder(["2022", "2023"], 20, 10); // Adjust typing and deleting speed for session
+  const sessionPlaceholder = useDynamicPlaceholder(["2022", "2023"], 20, 10);
   const contributorPlaceholder = useDynamicPlaceholder(
     ["Nishant", "Lalit", "Aryan", "Lil", "Anubhav"],
     50,
     50
-  ); // Adjust typing and deleting speed for contributor
+  );
 
   const handleFileUpload = (files) => {
     const fileArray = Array.from(files);
@@ -151,7 +152,7 @@ function SharingPage() {
       );
 
       if (res.status === 200 || res.status === 201) {
-        alert("Upload successful!");
+        setStatus("🎉 Upload successful!");
         setSubject("");
         setCourseCode("");
         setSemester("");
@@ -160,24 +161,20 @@ function SharingPage() {
         setUploadedFiles([]);
         setUploadProgress(0);
       } else {
-        alert("Upload failed.");
+        setStatus("❌ Upload failed.");
       }
     } catch (err) {
       console.error("Upload error:", err);
-      alert("Error uploading files.");
+      setStatus("❌ Error uploading files.");
     }
   };
 
   return (
-    <section
-      className="sharing-hero d-flex align-items-center justify-content-center"
-      onDragOver={(e) => e.preventDefault()}
-      onDrop={handleDrop}
-    >
-      <div className="container text-white text-center">
-        <h1 className="display-4 mb-4">Upload Question Papers</h1>
+    <div className="sharing-container">
+      <div className="sharing-card">
+        <h2>Upload Question Papers</h2>
 
-        <form onSubmit={handleSubmit} className="mb-4 text-start">
+        <form onSubmit={handleSubmit} className="sharing-form">
           {[
             {
               id: "subject",
@@ -215,14 +212,14 @@ function SharingPage() {
               placeholder: contributorPlaceholder,
             },
           ].map(({ id, label, value, setter, placeholder }) => (
-            <div className="form-group mb-3" key={id}>
+            <div key={id}>
               <label htmlFor={id} className="form-label">
                 {label}
               </label>
               <input
                 type="text"
                 id={id}
-                className="form-control form-control-lg animated-placeholder"
+                className="form-control"
                 placeholder={placeholder}
                 value={value}
                 onChange={(e) => setter(e.target.value)}
@@ -230,31 +227,36 @@ function SharingPage() {
             </div>
           ))}
 
-          <div
-            className={`drop-zone mt-4 ${dragActive ? "drag-active" : ""}`}
-            onDragEnter={() => setDragActive(true)}
-            onDragLeave={() => setDragActive(false)}
-          >
-            <input
-              type="file"
-              id="fileInput"
-              multiple
-              onChange={(e) => handleFileUpload(e.target.files)}
-              hidden
-            />
-            <label htmlFor="fileInput" className="file-label">
-              Drag & Drop files here or click to select
-            </label>
+          <div>
+            <label className="form-label">File Upload</label>
+            <div
+              className={`drop-zone ${dragActive ? "drag-active" : ""}`}
+              onDragEnter={() => setDragActive(true)}
+              onDragLeave={() => setDragActive(false)}
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={handleDrop}
+            >
+              <input
+                type="file"
+                id="fileInput"
+                multiple
+                onChange={(e) => handleFileUpload(e.target.files)}
+                hidden
+              />
+              <label htmlFor="fileInput" className="file-label">
+                Drag & Drop files here or click to select
+              </label>
+            </div>
           </div>
 
-          <button type="submit" className="btn btn-primary btn-lg mt-4 w-100">
-            Upload
-          </button>
+          {status && <div className="alert alert-info">{status}</div>}
+
+          <button type="submit">Submit</button>
         </form>
 
         {uploadedFiles.length > 0 && (
           <div className="uploaded-files mt-4">
-            <h5 className="text-white">Uploaded Files:</h5>
+            <h5>Uploaded Files:</h5>
             <ul className="list-group">
               {uploadedFiles.map((file, index) => (
                 <li
@@ -280,7 +282,7 @@ function SharingPage() {
           </Link>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 

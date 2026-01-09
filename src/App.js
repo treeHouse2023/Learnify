@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 
+import "./App.css";
+
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./ScrollToTop";
@@ -16,6 +18,15 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+
+      {/* Background Video */}
+      <div className="video-bg-wrapper">
+        <video autoPlay loop muted playsInline>
+          <source src="/black-hole.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      {/* App Layout */}
       <NavBar />
 
       <Routes>
@@ -28,7 +39,6 @@ function App() {
 
       <Footer />
 
-      {/* 👇 MUST be inside Router, only once */}
       <Analytics />
     </Router>
   );

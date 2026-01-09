@@ -1940,9 +1940,18 @@ const UploadedResources = () => {
 
   return (
     <div className="uploaded-resources-wrapper">
-      {/* 🔍 Search Section */}
       <section className="search-section">
+        {/* LOGO – INSIDE SAME COMPONENT */}
+        <div className="logo-wrapper">
+          <img
+            src="/faviconicon2.png"
+            alt="Logo"
+            style={{ width: "100px", height: "100px" }}
+          />
+        </div>
+
         <h1 className="heading">Search Question Papers</h1>
+
         <input
           type="text"
           placeholder="Search by title or course code..."
@@ -1952,7 +1961,6 @@ const UploadedResources = () => {
         />
       </section>
 
-      {/* 📄 Cards Section */}
       <section className="cards-section">
         <div className="row justify-content-center">
           {filteredCourses.length > 0 ? (
@@ -1975,7 +1983,7 @@ const UploadedResources = () => {
                   </div>
                   <div className="card-body text-center">
                     <button
-                      className="btn btn-success rounded-pill px-4"
+                      className="glass-download-btn"
                       onClick={() => handleDownload(course.imgSrc)}
                     >
                       Download

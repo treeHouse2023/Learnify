@@ -1,172 +1,218 @@
-/* Sharing Page Hero Section */
-.sharing-hero {
-  background-color: #000;
-  background-size: cover;
-  background-position: center;
+/* ===============================
+   SHARING PAGE CONTAINER
+================================ */
+.sharing-container {
   min-height: 100vh;
+  padding: 120px 20px 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  margin: 0;
-  padding: 0;
+  background: transparent;
+}
+
+/* ===============================
+   GLASS CARD
+================================ */
+.sharing-card {
   width: 100%;
-  overflow: hidden;
+  max-width: 1500px;
+  padding: 56px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(0, 0, 0, 0.78)
+  );
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  border-radius: 28px;
+
+  box-shadow: 0 100px 180px rgba(0, 0, 0, 0.95),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+
+  animation: panelIn 1.2s cubic-bezier(0.2, 0.9, 0.2, 1) forwards;
+  opacity: 0;
 }
 
-/* Form Inputs & Selectors */
-input.form-control-lg,
-select.form-control-lg {
-  border-radius: 10px;
-  border: 1px solid #444;
-  background-color: #111;
-  color: #fff !important;
-  padding: 14px;
-  font-size: 1rem;
-}
-
-input.form-control-lg::placeholder {
-  color: #aaa;
-}
-
-input.form-control-lg:focus {
-  outline: none;
-  border-color: #777;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-  background-color: #181818;
-}
-
-/* Animated Input Class */
-input.animated-placeholder {
-  animation: fadeIn 1.2s ease-in-out;
-  transition: all 0.3s ease;
-}
-
-/* Primary Button Styling */
-.btn-primary {
-  background-color: #1f1f1f;
-  color: #fff;
-  border: 1px solid #555;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  padding: 12px 30px;
-  border-radius: 8px;
-}
-
-.btn-primary:hover {
-  background-color: #444;
-  border-color: #777;
-  transform: translateY(-2px);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
-  transition-delay: 0.3s; /* Delay hover effect by 0.3s */
-}
-
-/* Back Button */
-.btn-outline-light {
-  border-color: #888;
-  color: #eee;
-  transition: all 0.3s ease;
-}
-
-.btn-outline-light:hover {
-  background-color: #fff;
-  color: #000;
-  border-color: #fff;
-  transform: scale(1.05);
-  transition-delay: 0.2s; /* Delay hover effect by 0.2s */
-}
-
-/* File List Delete Button */
-.list-group-item {
-  background-color: #111;
-  color: #fff;
-  border: 1px solid #444;
-}
-
-.btn-danger.btn-sm {
-  font-size: 0.75rem;
-  padding: 4px 10px;
-  border-radius: 4px;
-}
-
-/* Headings */
-.text-section h1,
-.text-section p {
-  animation: fadeIn 2s ease forwards;
-  animation-delay: 0.5s; /* Delay the fade-in by 0.5s */
-  color: #fff;
-}
-
-@keyframes fadeIn {
-  0% {
+/* ===============================
+   ENTRY ANIMATION
+================================ */
+@keyframes panelIn {
+  from {
+    transform: translateY(40px) scale(0.98);
     opacity: 0;
-    transform: translateY(-20px);
   }
-  100% {
+  to {
+    transform: translateY(0) scale(1);
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
-/* Drop Zone */
-.drop-zone {
-  border: 2px dashed #666;
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #ccc;
-  border-radius: 16px;
-  min-height: 150px;
+/* ===============================
+   FORM LAYOUT
+================================ */
+.sharing-form {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ===============================
+   HEADINGS & LABELS
+================================ */
+.sharing-card h2 {
   text-align: center;
+  font-size: 2.4rem;
+  font-weight: 500;
+  margin-bottom: 1.8rem;
+  color: #ffffff;
+  text-shadow: 0 0 40px rgba(180, 220, 255, 0.25);
+}
+
+.sharing-card h4,
+.sharing-card label {
+  color: #ffffff;
+}
+
+/* ===============================
+   INPUT FIELDS
+================================ */
+.form-control {
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 16px;
+  border: none;
+  padding: 14px 18px;
+  color: #ffffff;
+
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16),
+    0 20px 40px rgba(0, 0, 0, 0.7);
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  transition: all 0.35s ease;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.form-control:focus {
+  outline: none;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0 0 0 1px rgba(140, 200, 255, 0.7),
+    0 0 60px rgba(40, 120, 255, 0.45);
+}
+
+/* ===============================
+   RADIO BUTTONS
+================================ */
+.form-check-input {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.form-check-input:checked {
+  background-color: #9fd3ff;
+  border-color: #9fd3ff;
+  box-shadow: 0 0 14px rgba(160, 210, 255, 0.7);
+}
+
+.form-check-label {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ===============================
+   FILE INPUT
+================================ */
+input[type="file"] {
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #ffffff;
+
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  background: linear-gradient(
+    135deg,
+    rgba(90, 160, 255, 0.35),
+    rgba(40, 90, 200, 0.7)
+  );
+  border: none;
+  border-radius: 12px;
+  padding: 10px 18px;
+  color: #ffffff;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  max-width: 100%;
-  width: 750px;
-  margin: 0 auto;
-  padding: 30px;
+  margin-right: 12px;
 }
 
-.drop-zone:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-  transform: scale(1.02);
-  transition-delay: 0.2s; /* Delay hover effect by 0.2s */
+input[type="file"]::-webkit-file-upload-button:hover {
+  box-shadow: 0 0 18px rgba(140, 200, 255, 0.6);
 }
 
-.drop-zone.drag-active {
-  background-color: rgba(255, 255, 255, 0.08);
+/* ===============================
+   SUBMIT BUTTON
+================================ */
+.sharing-card button[type="submit"] {
+  all: unset;
+  cursor: pointer;
+  width: 100%;
+  padding: 16px 28px;
+  margin-top: 26px;
+
+  border-radius: 18px;
+  text-align: center;
+
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+
+  color: #cfe9ff;
+
+  background: linear-gradient(
+    135deg,
+    rgba(90, 160, 255, 0.25),
+    rgba(40, 90, 200, 0.65)
+  );
+
+  box-shadow: inset 0 0 0 1px rgba(160, 220, 255, 0.55),
+    0 25px 90px rgba(0, 0, 0, 0.85);
+
+  transition: all 0.35s ease;
 }
 
-.drop-zone .file-label {
-  font-size: 1.1rem;
-  color: #ccc;
-  animation: fadeIn 2s ease forwards;
+.sharing-card button[type="submit"]:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: inset 0 0 0 1px rgba(200, 240, 255, 0.85),
+    0 35px 120px rgba(40, 120, 255, 0.65);
 }
 
-.drop-zone input[type="file"] {
-  display: none;
+/* ===============================
+   ALERT
+================================ */
+.alert-info {
+  background: rgba(90, 160, 255, 0.12);
+  border: none;
+  color: #9fd3ff;
 }
 
-/* Uploaded Files */
-.uploaded-files {
-  max-width: 750px;
-  margin: 0 auto;
-}
-
-.uploaded-files h5 {
-  color: #eee;
-  margin-bottom: 10px;
-}
-
-/* Responsive */
+/* ===============================
+   RESPONSIVE
+================================ */
 @media (max-width: 768px) {
-  .sharing-hero {
-    padding: 20px;
+  .sharing-card {
+    padding: 36px;
   }
+}
 
-  .drop-zone {
-    width: 100%;
-    margin-left: 0;
+@media (max-width: 576px) {
+  .sharing-card {
     padding: 20px;
   }
 }
