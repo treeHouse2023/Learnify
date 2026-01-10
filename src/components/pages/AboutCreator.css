@@ -1,121 +1,131 @@
 .about-creator-section {
-  padding: 120px 20px;
+  padding: 140px 20px;
   display: flex;
   justify-content: center;
   color: #ffffff;
 }
 
 .creator-glass-card {
-  width: 100%;
-  max-width: 1600px;
-  padding: 64px;
+  width: 1460px;
+  padding: 50px;
+
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.06),
     rgba(0, 0, 0, 0.75)
   );
+
   backdrop-filter: blur(22px);
-  border-radius: 32px;
+  border-radius: 36px;
+
   box-shadow: 0 90px 160px rgba(0, 0, 0, 0.9),
     inset 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
-/* ================= PROFILE HEADER ================= */
+/* ================= HEADER ================= */
+
+.creator-glass-card h1 {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 500;
+  margin-bottom: 60px;
+  color: #ffffff;
+}
 
 .creator-image {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
-  margin: 0 auto 20px;
+  margin: 0 auto 24px;
   display: block;
+
   box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.15),
     0 40px 100px rgba(0, 0, 0, 0.9);
 }
 
 .creator-name {
   text-align: center;
-  font-size: 1.9rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .creator-roles {
   text-align: center;
   font-size: 1rem;
   opacity: 0.85;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
+  line-height: 1.6;
 }
 
-/* ================= SECTION CARD ================= */
+/* ================= CONTENT SECTIONS ================= */
 
-.creator-card {
-  max-width: 1200px;
-  margin: 0 auto 56px;
-  padding: 36px 42px;
+.creator-section,
+.creator-highlight {
+  max-width: 960px;
+  margin: 0 auto 64px;
+  padding: 42px 48px;
 
-  background: rgba(0, 0, 0, 0.38);
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(14px);
-  border-radius: 24px;
+  border-radius: 28px;
 
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12),
     0 30px 80px rgba(0, 0, 0, 0.85);
 }
 
-.creator-card h3 {
+.creator-section h3,
+.creator-highlight h3 {
   font-size: 1.35rem;
   color: #cfe9ff;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
-.creator-card p {
-  max-width: 900px;
+.creator-section p,
+.creator-highlight p {
   font-size: 1.02rem;
-  line-height: 1.8;
+  line-height: 1.9;
   opacity: 0.92;
+  margin-bottom: 16px;
 }
 
-/* ================= ACHIEVEMENT LIST ================= */
-
-.creator-achievements {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.creator-achievements li {
-  padding: 14px 0;
-  font-size: 1rem;
-  opacity: 0.9;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.creator-achievements li:last-child {
-  border-bottom: none;
-}
-
-/* ================= IMPACT CARD ================= */
-
-.creator-impact {
-  max-width: 1100px;
-  margin: 70px auto;
-  padding: 40px 44px;
-
+.creator-highlight {
   background: linear-gradient(
     135deg,
     rgba(90, 160, 255, 0.18),
     rgba(40, 90, 200, 0.55)
   );
 
-  border-radius: 26px;
   box-shadow: inset 0 0 0 1px rgba(160, 220, 255, 0.35),
     0 40px 100px rgba(0, 0, 0, 0.9);
 }
 
-.creator-impact p {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  opacity: 0.95;
+/* ================= LIST ================= */
+
+.creator-points {
+  padding-left: 18px;
+}
+
+.creator-points li {
+  font-size: 1rem;
+  opacity: 0.9;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+/* ================= DIVIDER ================= */
+
+.creator-divider {
+  width: 120px;
+  height: 2px;
+  margin: 80px auto 60px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(160, 220, 255, 0.7),
+    transparent
+  );
 }
 
 /* ================= SOCIAL ================= */
@@ -124,12 +134,12 @@
   display: flex;
   justify-content: center;
   gap: 26px;
-  margin: 70px 0 50px;
+  margin: 40px 0 80px;
 }
 
 .social-links a {
   font-size: 26px;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.85);
   transition: all 0.3s ease;
 }
 
@@ -141,21 +151,34 @@
 /* ================= CONTACT ================= */
 
 .contact-form {
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto;
   text-align: center;
+
+  padding: 52px 48px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(14px);
+  border-radius: 30px;
+
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+    0 40px 100px rgba(0, 0, 0, 0.9);
+}
+
+.contact-form h3 {
+  margin-bottom: 12px;
 }
 
 .contact-form p {
   opacity: 0.85;
-  margin-bottom: 30px;
+  margin-bottom: 34px;
 }
 
 .contact-input,
 .contact-textarea {
   width: 100%;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   padding: 14px 18px;
+
   background: rgba(0, 0, 0, 0.55);
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -163,42 +186,77 @@
 }
 
 .contact-submit-btn {
-  margin-top: 18px;
-  padding: 14px 46px;
-  border-radius: 20px;
+  margin-top: 22px;
+  padding: 14px 52px;
+  border-radius: 22px;
+
   background: linear-gradient(
     135deg,
     rgba(90, 160, 255, 0.25),
     rgba(40, 90, 200, 0.65)
   );
+
   color: #ffffff;
   border: none;
   cursor: pointer;
 }
 
-/* ================= FOOTER ================= */
+.contact-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.form-success {
+  margin-top: 18px;
+  color: #9fd3ff;
+  font-size: 14px;
+}
+
+.form-error {
+  margin-top: 18px;
+  color: #ff9f9f;
+  font-size: 14px;
+}
+
+/* ================= BACK BUTTON ================= */
 
 .back-btn {
   display: block;
-  margin: 70px auto 0;
+  margin: 90px auto 0;
   width: fit-content;
-  padding: 10px 30px;
-  border-radius: 20px;
+  padding: 12px 36px;
+
+  border-radius: 22px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   color: #ffffff;
   text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* ================= RESPONSIVE ================= */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .creator-glass-card {
-    padding: 44px 24px;
+    padding: 48px 28px;
   }
 
-  .creator-card,
-  .creator-impact {
-    padding: 28px 22px;
-    text-align: center;
+  .creator-section,
+  .creator-highlight,
+  .contact-form {
+    padding: 32px 26px;
+  }
+}
+
+@media (max-width: 576px) {
+  .creator-glass-card {
+    padding: 36px 20px;
+  }
+
+  .creator-roles {
+    margin-bottom: 60px;
   }
 }

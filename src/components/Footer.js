@@ -1,70 +1,112 @@
 import React from "react";
+import {
+  FaEnvelope,
+  FaTwitter,
+  FaGlobe,
+  FaInstagram,
+  FaLinkedin,
+  FaGithub,
+  FaArrowUp,
+} from "react-icons/fa";
 import "./Footer.css";
 
 const Footer = () => {
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <footer className="footer">
-      <div className="container">
+      <div className="footer-container">
         <button
-          onClick={scrollToTop}
           className="back-to-top"
-          aria-label="Go back to top"
+          onClick={scrollToTop}
+          aria-label="Back to top"
         >
-          <i className="fa fa-angle-up fa-2x" aria-hidden="true"></i>
+          <FaArrowUp />
         </button>
 
+        <div className="footer-grid">
+          <div className="footer-brand">
+            <h3>Nishant Chauhan</h3>
+            <p>
+              Frontend Developer focused on building clean, performant, and
+              visually engaging web experiences.
+            </p>
+          </div>
+
+          <div className="footer-links">
+            <h4>Quick Links</h4>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/projects">Projects</a>
+            <a href="/contact">Contact</a>
+          </div>
+
+          <div className="footer-contact">
+            <h4>Contact</h4>
+            <a href="mailto:nishant852800@gmail.com">nishant852800@gmail.com</a>
+            <a
+              href="https://nishant-chauhan-portfolio.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Portfolio Website
+            </a>
+          </div>
+        </div>
+
         <div className="social-links">
+          <a href="mailto:nishant852800@gmail.com" aria-label="email">
+            <FaEnvelope />
+          </a>
           <a
-            href="https://x.com/nishant852800"
+            href="https://twitter.com/nishant852800"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
             aria-label="twitter"
           >
-            <i className="fa-brands fa-x-twitter"></i>
+            <FaTwitter />
+          </a>
+          <a
+            href="https://nishant-chauhan-portfolio.vercel.app/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="website"
+          >
+            <FaGlobe />
           </a>
           <a
             href="https://www.instagram.com/nishant.chauhan20/"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
             aria-label="instagram"
           >
-            <i className="fa-brands fa-instagram"></i>
-          </a>
-          <a href="#" aria-label="home">
-            <i className="fa-solid fa-house"></i>
+            <FaInstagram />
           </a>
           <a
             href="https://www.linkedin.com/in/nishant-chauhan-870239234/"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
             aria-label="linkedin"
           >
-            <i className="fa-brands fa-linkedin"></i>
+            <FaLinkedin />
           </a>
           <a
             href="https://github.com/treeHouse2023"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noreferrer"
             aria-label="github"
           >
-            <i className="fa-brands fa-github"></i>
+            <FaGithub />
           </a>
         </div>
 
-        <hr />
-        <p className="footer__text">
-          © {new Date().getFullYear()}{" "}
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            Nishant Chauhan
-          </a>
-        </p>
+        <div className="footer-bottom">
+          <p>
+            © {new Date().getFullYear()} Nishant Chauhan Built LearniFy with ❤️
+          </p>
+        </div>
       </div>
     </footer>
   );

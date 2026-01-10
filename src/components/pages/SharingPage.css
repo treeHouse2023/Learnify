@@ -216,3 +216,24 @@ input[type="file"]::-webkit-file-upload-button:hover {
     padding: 20px;
   }
 }
+/* Force white text while typing */
+.form-control,
+.form-control:focus,
+.form-control:active {
+  color: #ffffff !important;
+  caret-color: #ffffff;
+}
+
+/* Fix for Chrome autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill {
+  -webkit-text-fill-color: #ffffff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Radio + file input text fix */
+.form-check-label {
+  color: #ffffff !important;
+}

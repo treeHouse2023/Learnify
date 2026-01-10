@@ -4,119 +4,84 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./SharingPage.css";
 
-// Synchronized dynamic placeholder hook with customizable speed
-function useDynamicPlaceholder(
-  placeholderList,
-  typingSpeed = 100,
-  deletingSpeed = 50,
-  pauseTime = 100 // reduced pause time for quicker cycling
-) {
-  const [placeholder, setPlaceholder] = useState("");
-  const [index, setIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [deleting, setDeleting] = useState(false);
+function useDynamicPlaceholder(list, typeSpeed = 80, deleteSpeed = 40) {
+  const [text, setText] = useState("");
+  const [i, setI] = useState(0);
+  const [j, setJ] = useState(0);
+  const [del, setDel] = useState(false);
 
   useEffect(() => {
-    const current = placeholderList[index];
-    let timeout;
+    const current = list[i];
+    let t;
 
-    if (!deleting) {
-      if (charIndex < current.length) {
-        timeout = setTimeout(() => {
-          setPlaceholder(current.substring(0, charIndex + 1));
-          setCharIndex(charIndex + 1);
-        }, typingSpeed);
-      } else {
-        timeout = setTimeout(() => setDeleting(true), 100); // minimal pause before deleting
-      }
+    if (!del && j < current.length) {
+      t = setTimeout(() => {
+        setText(current.slice(0, j + 1));
+        setJ(j + 1);
+      }, typeSpeed);
+    } else if (!del && j === current.length) {
+      t = setTimeout(() => setDel(true), 500);
+    } else if (del && j > 0) {
+      t = setTimeout(() => {
+        setText(current.slice(0, j - 1));
+        setJ(j - 1);
+      }, deleteSpeed);
     } else {
-      if (charIndex > 0) {
-        timeout = setTimeout(() => {
-          setPlaceholder(current.substring(0, charIndex - 1));
-          setCharIndex(charIndex - 1);
-        }, deletingSpeed);
-      } else {
-        setDeleting(false);
-        setIndex((prev) => (prev + 1) % placeholderList.length); // Move to the next name immediately
-      }
+      setDel(false);
+      setI((prev) => (prev + 1) % list.length);
     }
 
-    return () => clearTimeout(timeout);
-  }, [
-    charIndex,
-    deleting,
-    index,
-    placeholderList,
-    typingSpeed,
-    deletingSpeed,
-    pauseTime,
-  ]);
+    return () => clearTimeout(t);
+  }, [j, del, i, list]);
 
-  return placeholder;
+  return text;
 }
 
 function SharingPage() {
   const [subject, setSubject] = useState("");
   const [courseCode, setCourseCode] = useState("");
-  const [semester, setSemester] = useState("");
   const [session, setSession] = useState("");
+  const [examType, setExamType] = useState("");
   const [contributor, setContributor] = useState("");
-  const [uploadedFiles, setUploadedFiles] = useState([]);
-  const [uploadProgress, setUploadProgress] = useState(0);
-  const [dragActive, setDragActive] = useState(false);
+  const [file, setFile] = useState(null);
   const [status, setStatus] = useState("");
 
-  // Dynamic placeholders with adjusted speed for each field
-  const subjectPlaceholder = useDynamicPlaceholder(
-    [
-      "Algorithm Design and Analysis",
-      "Operating System",
-      "Computer Networks",
-      "Database Management System",
-      "Software Engineering",
-    ],
-    70,
-    60
-  );
+  const subjectPH = useDynamicPlaceholder([
+    "Operating System",
+    "DBMS",
+    "Computer Networks",
+  ]);
+  const coursePH = useDynamicPlaceholder(["CSA301", "CSE204"]);
+  const sessionPH = useDynamicPlaceholder(["2022", "2023", "2024"]);
+  const contributorPH = useDynamicPlaceholder([
+    "Nishant",
+    "Lalit",
+    "Aryan",
+    "Ribu",
+    "Anubhav",
+    "Kashish",
+    "Lil Bahadur",
+  ]);
 
-  const courseCodePlaceholder = useDynamicPlaceholder(
-    ["CSA301", "CSE204", "CSA105", "CSE101"],
-    100,
-    60
-  );
+  const uploadToCloudinary = async () => {
+    const cloudName = "dmgkjo9pm";
+    const uploadPreset = "Learnify";
 
-  const semesterPlaceholder = useDynamicPlaceholder(
-    ["MSE", "ESE", "Reappear", "Practical"],
-    90,
-    60
-  );
+    if (!file) throw new Error("No file selected");
 
-  const sessionPlaceholder = useDynamicPlaceholder(["2022", "2023"], 20, 10);
-  const contributorPlaceholder = useDynamicPlaceholder(
-    ["Nishant", "Lalit", "Aryan", "Lil", "Anubhav"],
-    50,
-    50
-  );
+    const isImage = file.type.startsWith("image/");
+    const endpoint = isImage ? "image" : "raw";
 
-  const handleFileUpload = (files) => {
-    const fileArray = Array.from(files);
-    setUploadedFiles(fileArray);
-    setUploadProgress(100);
-  };
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", uploadPreset);
 
-  const handleFileDelete = (index) => {
-    const updatedFiles = [...uploadedFiles];
-    updatedFiles.splice(index, 1);
-    setUploadedFiles(updatedFiles);
-    setUploadProgress(updatedFiles.length ? 100 : 0);
-  };
+    const res = await axios.post(
+      `https://api.cloudinary.com/v1_1/${cloudName}/${endpoint}/upload`,
+      formData
+    );
 
-  const handleDrop = (e) => {
-    e.preventDefault();
-    setDragActive(false);
-    if (e.dataTransfer.files.length) {
-      handleFileUpload(e.dataTransfer.files);
-    }
+    return res.data.secure_url;
   };
 
   const handleSubmit = async (e) => {
@@ -125,158 +90,118 @@ function SharingPage() {
     if (
       !subject ||
       !courseCode ||
-      !semester ||
       !session ||
+      !examType ||
       !contributor ||
-      uploadedFiles.length === 0
+      !file
     ) {
-      alert("Please fill all fields and upload at least one file.");
+      alert("Fill all fields");
       return;
     }
 
     try {
-      const formData = new FormData();
-      uploadedFiles.forEach((file) => formData.append("file", file));
-      formData.append("subject", subject);
-      formData.append("courseCode", courseCode);
-      formData.append("semester", semester);
-      formData.append("session", session);
-      formData.append("contributor", contributor);
+      setStatus("Uploading to Cloud...");
 
-      const res = await axios.post(
-        process.env.REACT_APP_API_URL || "http://localhost:5000/upload",
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
+      const fileURL = await uploadToCloudinary();
+
+      setStatus("Sending mail...");
+
+      const mailData = new FormData();
+      mailData.append("access_key", "1ef5c2bb-348c-4c9d-a22d-1acb5ec90420");
+      mailData.append("subject", "New Question Paper Submission");
+      mailData.append("from_name", contributor);
+      mailData.append(
+        "message",
+        `
+Subject: ${subject}
+Course Code: ${courseCode}
+Session: ${session}
+Exam Type: ${examType}
+Contributor: ${contributor}
+
+Cloudinary Link:
+${fileURL}
+        `
       );
 
-      if (res.status === 200 || res.status === 201) {
-        setStatus("🎉 Upload successful!");
-        setSubject("");
-        setCourseCode("");
-        setSemester("");
-        setSession("");
-        setContributor("");
-        setUploadedFiles([]);
-        setUploadProgress(0);
-      } else {
-        setStatus("❌ Upload failed.");
-      }
+      await axios.post("https://api.web3forms.com/submit", mailData);
+
+      alert("File uploaded & mail sent!");
+      setStatus("");
+
+      setSubject("");
+      setCourseCode("");
+      setSession("");
+      setExamType("");
+      setContributor("");
+      setFile(null);
     } catch (err) {
-      console.error("Upload error:", err);
-      setStatus("❌ Error uploading files.");
+      console.error(err);
+      alert("Upload failed. Check console.");
+      setStatus("");
     }
   };
 
   return (
     <div className="sharing-container">
       <div className="sharing-card">
-        <h2>Upload Question Papers</h2>
+        <h2>Upload Question Paper</h2>
 
         <form onSubmit={handleSubmit} className="sharing-form">
-          {[
-            {
-              id: "subject",
-              label: "Subject Name",
-              value: subject,
-              setter: setSubject,
-              placeholder: subjectPlaceholder,
-            },
-            {
-              id: "courseCode",
-              label: "Course Code",
-              value: courseCode,
-              setter: setCourseCode,
-              placeholder: courseCodePlaceholder,
-            },
-            {
-              id: "semester",
-              label: "Semester",
-              value: semester,
-              setter: setSemester,
-              placeholder: semesterPlaceholder,
-            },
-            {
-              id: "session",
-              label: "Session",
-              value: session,
-              setter: setSession,
-              placeholder: sessionPlaceholder,
-            },
-            {
-              id: "contributor",
-              label: "Contributor Name",
-              value: contributor,
-              setter: setContributor,
-              placeholder: contributorPlaceholder,
-            },
-          ].map(({ id, label, value, setter, placeholder }) => (
-            <div key={id}>
-              <label htmlFor={id} className="form-label">
-                {label}
-              </label>
-              <input
-                type="text"
-                id={id}
-                className="form-control"
-                placeholder={placeholder}
-                value={value}
-                onChange={(e) => setter(e.target.value)}
-              />
-            </div>
-          ))}
+          <input
+            className="form-control"
+            placeholder={subjectPH}
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+          />
+          <input
+            className="form-control"
+            placeholder={coursePH}
+            value={courseCode}
+            onChange={(e) => setCourseCode(e.target.value)}
+          />
+          <input
+            className="form-control"
+            placeholder={sessionPH}
+            value={session}
+            onChange={(e) => setSession(e.target.value)}
+          />
 
-          <div>
-            <label className="form-label">File Upload</label>
-            <div
-              className={`drop-zone ${dragActive ? "drag-active" : ""}`}
-              onDragEnter={() => setDragActive(true)}
-              onDragLeave={() => setDragActive(false)}
-              onDragOver={(e) => e.preventDefault()}
-              onDrop={handleDrop}
-            >
-              <input
-                type="file"
-                id="fileInput"
-                multiple
-                onChange={(e) => handleFileUpload(e.target.files)}
-                hidden
-              />
-              <label htmlFor="fileInput" className="file-label">
-                Drag & Drop files here or click to select
-              </label>
-            </div>
+          <div className="mt-3">
+            <label>Exam Type</label>
+            {["MSE", "ESE", "Reappear", "Practical"].map((t) => (
+              <div key={t} className="form-check">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="examType"
+                  value={t}
+                  checked={examType === t}
+                  onChange={(e) => setExamType(e.target.value)}
+                />
+                <label className="form-check-label">{t}</label>
+              </div>
+            ))}
           </div>
 
-          {status && <div className="alert alert-info">{status}</div>}
+          <input
+            className="form-control mt-2"
+            placeholder={contributorPH}
+            value={contributor}
+            onChange={(e) => setContributor(e.target.value)}
+          />
+          <input
+            type="file"
+            className="form-control mt-3"
+            accept=".pdf,.jpg,.jpeg,.png,.webp"
+            onChange={(e) => setFile(e.target.files[0])}
+          />
 
-          <button type="submit">Submit</button>
+          {status && <div className="alert alert-info mt-3">{status}</div>}
+          <button className="btn btn-primary mt-3">Submit</button>
         </form>
 
-        {uploadedFiles.length > 0 && (
-          <div className="uploaded-files mt-4">
-            <h5>Uploaded Files:</h5>
-            <ul className="list-group">
-              {uploadedFiles.map((file, index) => (
-                <li
-                  key={index}
-                  className="list-group-item d-flex justify-content-between align-items-center"
-                >
-                  {file.name}
-                  <button
-                    className="btn btn-danger btn-sm"
-                    onClick={() => handleFileDelete(index)}
-                  >
-                    Delete
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        <div className="mt-5 text-center">
+        <div className="mt-4 text-center">
           <Link to="/">
             <button className="btn btn-outline-light">Back to Home</button>
           </Link>

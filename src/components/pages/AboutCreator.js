@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -12,8 +12,12 @@ import {
   FaGithub,
   FaGlobe,
 } from "react-icons/fa";
+import axios from "axios";
 
 function AboutCreator() {
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+
   useEffect(() => {
     AOS.init({
       duration: 900,
@@ -21,6 +25,34 @@ function AboutCreator() {
       once: true,
     });
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("");
+
+    const formData = new FormData(e.target);
+    formData.append("access_key", "1ef5c2bb-348c-4c9d-a22d-1acb5ec90420");
+    formData.append("subject", "New Contact Message from Portfolio");
+    formData.append("from_name", "About Creator Page");
+
+    try {
+      const res = await axios.post(
+        "https://api.web3forms.com/submit",
+        formData
+      );
+      if (res.data.success) {
+        setStatus("success");
+        e.target.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <section className="about-creator-section">
@@ -38,93 +70,156 @@ function AboutCreator() {
           Nishant Chauhan
         </p>
 
-        <p className="creator-roles" data-aos="fade-up" data-aos-delay="100">
-          Web Developer (React.js) • Digital Marketing Strategist <br />
+        <p className="creator-roles" data-aos="fade-up">
+          3× Business Hackathon Winner (Rank 1) • 2+ Years Experience <br />
+          Digital Marketing & Strategy • Web Developer (React.js) <br />
           AI & ML Enthusiast • Content Creator • MBA Aspirant
         </p>
 
-        <div
-          className="creator-section"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          <h3>Who I Am</h3>
+        {/* SUMMARY */}
+        <div className="creator-section" data-aos="fade-up">
+          <h3>Professional Summary</h3>
           <p>
-            I am a results-driven digital professional with over two years of
-            hands-on experience at the intersection of technology, marketing,
-            and business strategy. My core strength lies in building
-            user-centric digital products that solve real academic and business
-            problems.
+            I am a results-driven Marketing and Communications professional with
+            over two years of experience blending creativity, strategy, and
+            technology. With a strong foundation in web development (HTML, CSS,
+            JavaScript, React) and expertise in digital marketing, social media
+            strategy, and content creation, I design campaigns that connect,
+            engage, and convert.
           </p>
           <p>
-            My journey spans web development, digital marketing, content
-            strategy, video production, and AI-powered solutions. I have worked
-            with startups, educational platforms, and freelance clients, helping
-            them scale through modern web experiences and performance-driven
-            digital systems.
+            I have executed drone-based outreach programs at Garuda Aerospace,
+            driven course sales as an ambassador for YHills and Internshala, and
+            collaborated with more than ten freelance clients to scale their
+            online presence through digital strategy, video editing, and brand
+            storytelling.
           </p>
-        </div>
-
-        <div
-          className="creator-highlight"
-          data-aos="fade-up"
-          data-aos-delay="300"
-        >
-          <h3>Why I Built This Platform</h3>
           <p>
-            During my academic journey, I experienced how scattered,
-            inaccessible, and unreliable previous-year question papers could be.
-            This inspired me to build a clean, centralized, and verified
-            Question Paper Hub for students of my college.
+            As a former Google Developer Group member and Rank 1 achiever at
+            both Management Mosaic and the Gen AI Academy by Google Cloud, I
+            operate at the intersection of marketing, technology, and AI
+            innovation.
           </p>
         </div>
 
-        <div
-          className="creator-highlight"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        >
-          <p>
-            Today, this platform serves{" "}
-            <strong>100+ monthly student users</strong>, helping them prepare
-            efficiently and confidently — completely free of cost, without
-            distractions or unofficial sources.
-          </p>
-        </div>
-
-        <div
-          className="creator-section"
-          data-aos="fade-up"
-          data-aos-delay="500"
-        >
-          <h3>Professional Highlights</h3>
+        {/* CONTACT INFO */}
+        <div className="creator-section" data-aos="fade-up">
+          <h3>Contact Information</h3>
           <ul className="creator-points">
-            <li>3× Business Hackathon Winner (Rank 1)</li>
-            <li>Rank 1 – Gen AI Academy (Google Cloud)</li>
-            <li>Former Google Developer Group (GDG) Member</li>
-            <li>Digital Media Executive & Freelance Consultant</li>
-            <li>Experience with AI, Generative Models & LLM-based systems</li>
-            <li>Founder & Community Builder (Education Platforms)</li>
+            <li>Email: nishant852800@gmail.com</li>
+            <li>LinkedIn: www.linkedin.com/in/nishantchauhan2004</li>
+            <li>Location: India</li>
           </ul>
         </div>
 
-        <div
-          className="creator-section"
-          data-aos="fade-up"
-          data-aos-delay="600"
-        >
+        {/* SKILLS */}
+        <div className="creator-section" data-aos="fade-up">
+          <h3>Top Skills</h3>
+          <ul className="creator-points">
+            <li>React.js & Frontend Development</li>
+            <li>Digital Marketing & Growth Strategy</li>
+            <li>Content Marketing & Social Media Strategy</li>
+            <li>Video Editing & Brand Storytelling</li>
+            <li>AI, LLMs & Generative AI Systems</li>
+            <li>Website Optimization (React & WordPress)</li>
+          </ul>
+        </div>
+
+        {/* LANGUAGES */}
+        <div className="creator-section" data-aos="fade-up">
+          <h3>Languages</h3>
+          <ul className="creator-points">
+            <li>Punjabi — Native / Bilingual</li>
+            <li>Hindi — Native / Bilingual</li>
+            <li>English — Professional Working Proficiency</li>
+          </ul>
+        </div>
+
+        {/* CERTIFICATIONS */}
+        <div className="creator-section" data-aos="fade-up">
+          <h3>Certifications</h3>
+          <ul className="creator-points">
+            <li>Build Real World AI Applications with Gemini & Imagen</li>
+            <li>Deloitte Australia — Technology Job Simulation</li>
+            <li>Tata — GenAI Powered Data Analytics Job Simulation</li>
+            <li>Content Marketing Certification</li>
+          </ul>
+        </div>
+
+        {/* EXPERIENCE */}
+        <div className="creator-section" data-aos="fade-up">
+          <h3>Professional Experience</h3>
+
           <p>
-            Currently pursuing my MBA, I am focused on solving business
-            challenges through technology, building scalable platforms, and
-            creating long-term digital impact at the intersection of innovation,
-            education, and strategy.
+            <strong>Founder & CEO — NextStep (July 2025 – Present)</strong>
           </p>
+          <p>
+            Founded and lead a student-focused education and career platform.
+            Curate verified internships, job alerts, government updates, and
+            free certifications. Built and manage a growing student community
+            while ensuring authenticity and employability impact.
+          </p>
+
+          <p>
+            <strong>Digital Media Executive — A-sonne</strong>
+          </p>
+          <p>
+            Designed and optimized websites, created videos, motion graphics,
+            and promotional content, and collaborated with teams to maintain
+            consistent brand communication.
+          </p>
+
+          <p>
+            <strong>Social Media Manager — GDG On Campus DAV University</strong>
+          </p>
+          <p>
+            Led social media strategy, content creation, and engagement for the
+            GDG student developer community.
+          </p>
+
+          <p>
+            <strong>Freelancer — Digital Marketing & Video Editing</strong>
+          </p>
+          <p>
+            Planned and executed ad campaigns, managed social calendars, and
+            optimized marketing ROI for cafes, restaurants, startups, and
+            service-based businesses.
+          </p>
+
+          <p>
+            <strong>Intel® Unnati Industrial Training Program</strong>
+          </p>
+          <p>
+            Completed training in Generative AI and LLM inference. Built a
+            custom AI chatbot as a capstone project.
+          </p>
+
+          <p>
+            <strong>Field Marketing Intern — Garuda Aerospace</strong>
+          </p>
+          <p>
+            Conducted drone demonstrations for farmers under the Bharat Viksit
+            Sankalp program, promoting modern agricultural practices.
+          </p>
+        </div>
+
+        {/* EDUCATION */}
+        <div className="creator-section" data-aos="fade-up">
+          <h3>Education</h3>
+          <ul className="creator-points">
+            <li>
+              MBA — Business & Marketing Operations (2025–2027), DAV University
+            </li>
+            <li>BCA — Computer Applications (2022–2025), DAV University</li>
+            <li>12th (Commerce + Mathematics), Doaba College</li>
+            <li>10th Standard, Hemkunt Public School</li>
+          </ul>
         </div>
 
         <div className="creator-divider" />
 
+        {/* SOCIAL */}
         <h3 data-aos="fade-up">Connect With Me</h3>
-
         <div className="social-links" data-aos="fade-up">
           <a href="mailto:nishant852800@gmail.com">
             <FaEnvelope />
@@ -166,19 +261,12 @@ function AboutCreator() {
           </a>
         </div>
 
+        {/* CONTACT FORM */}
         <div className="contact-form" data-aos="fade-up">
           <h3>Contact Me</h3>
-          <p>
-            Have a project, collaboration, or idea in mind? Let’s build
-            something impactful together.
-          </p>
+          <p>Have a project, collaboration, or idea? Let’s build together.</p>
 
-          <form action="https://api.web3forms.com/submit" method="POST">
-            <input
-              type="hidden"
-              name="access_key"
-              value="REPLACE_WITH_YOUR_KEY"
-            />
+          <form onSubmit={handleSubmit}>
             <input
               type="text"
               name="name"
@@ -200,9 +288,21 @@ function AboutCreator() {
               placeholder="Your Message"
               required
             />
-            <button type="submit" className="contact-submit-btn">
-              Send Message
+
+            <button
+              type="submit"
+              className="contact-submit-btn"
+              disabled={loading}
+            >
+              {loading ? "Sending..." : "Send Message"}
             </button>
+
+            {status === "success" && (
+              <p className="form-success">Message sent successfully</p>
+            )}
+            {status === "error" && (
+              <p className="form-error">Something went wrong. Try again.</p>
+            )}
           </form>
         </div>
 
